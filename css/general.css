@@ -1,0 +1,12 @@
+body {
+background-color: #F4F4F4;
+}
+
+#banner {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    width: 100%;
+    height: 200px;
+  }
