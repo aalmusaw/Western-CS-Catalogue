@@ -8,6 +8,6 @@
     </head>
     
     <body>
-    <img id="banner" src="img/main-banner.jpg" alt="<Western University Banner>"/>
+    <img id="banner" src="img/Middlesex_01.png" alt="<Western University Banner>"/>
     </body>
 </html>
