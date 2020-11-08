@@ -32,7 +32,7 @@ else if ($entity==='university') {
        mysqli_free_result($result);
     }
     else if($_GET['droplist'] === 'province_abv') {
-        $query = "SELECT province_abv FROM university ORDER BY province_abv";
+        $query = "SELECT DISTINCT(province_abv) FROM university ORDER BY province_abv";
         $result = mysqli_query($connection,$query);
         while ($row = mysqli_fetch_assoc($result)) {
             echo '<option value="';
