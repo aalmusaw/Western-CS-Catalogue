@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title> WCCS - View Data </title>
+    <link rel="stylesheet" type="text/css" href="../../css/styles.css"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="../../js/view_functions.js"></script>
+    <body>
+        <header>
+            <img src="../../img/uwo-logo.png" alt="uwo logo"/>
+            <ul class="nav_links">
+                <li><a href="../../index.html">Western CS Catalogue</a></li>
+            </ul>
+            <nav>
+                <ul class="nav_links">
+                    <li><a href="view.html">View</a></li>
+                    <li><a href="add.html">Insert</a></li>
+                    <li><a href="edit.html">Edit</a></li>
+                    <li><a href="delete.html">Delete</a></li>
+                </ul>
+            </nav>
+        </header>
+        <div class="container">
+            <form class="query_panel">
+            <div class="row">
+              <div class="col-25">
+                <label for="entity">Search For</label>
+              </div>
+              <div class="col-75">
+                <select id="entity" name="entity" onchange="onSelectEntity(this.value)">
+                    <option value="wcs_course">Western Courses</option>
+                    <option value="university">Universities</option>
+                    <option value="is_equivalent">Equivalent Courses</option>
+                </select>
+              </div>
+            </div>
+            <div id="wcs_course">
+                <div class="row">
+                    <div class="col-25">
+                        <label for="ordered_by">Order By</label>
+                    </div>
+                    <div class="col-75">
+                        <select id="ordered_by" name="ordered_by">
+                            <option value="course_code">Course Number</option>
+                            <option value="course_name">Course Name</option>
+                        </select>
+                      </div>
+                </div>
+                <div class="row">
+                    <div class="col-25">
+                        <label for="ordered_dir">Ordering Direction</label>
+                    </div>
+                    <div class="col-75">
+                        <select id="ordered_dir" name="ordered_dir">
+                            <option value="asc">Ascending</option>
+                            <option value="desc">Descending</option>
+                        </select>
+                      </div>
+                </div>
+            </div>
+            <div id="university" style="display: none;">
+                <div class="row">
+                    <div class="col-25">
+                        <label for="uni_name">Search By University</label>
+                    </div>
+                    <div class="col-75">
+                        <select id="uni_name" name="uni_name">
+                            <option value="">-</option>
+                            <option value="University of Toronto">University of Toronto</option>
+                            <option value="University of Waterloo">University of Waterloo</option>
+                            <option value="University of British Columbia">University of British Columbia</option>
+                        </select>
+                      </div>
+                </div>
+                <div class="row">
+                    <div class="col-25">
+                        <label for="province_abv">Search By Province</label>
+                    </div>
+                    <div class="col-75">
+                        <select id="province_abv" name="province_abv">
+                            <option value="">-</option>
+                            <option value="AB">AB</option>
+                            <option value="BC">BC</option>
+                            <option value="MB">MB</option>
+                            <option value="NB">NB</option>
+                            <option value="NL">NL</option>
+                            <option value="NT">NT</option>
+                            <option value="NS">NS</option>
+                            <option value="NU">NU</option>
+                            <option value="ON">ON</option>
+                            <option value="PE">PE</option>
+                            <option value="NB">NB</option>
+                            <option value="QC">QC</option>
+                            <option value="SK">SK</option>
+                            <option value="YT">YT</option>
+                        </select>
+                      </div>
+                </div>
+            </div>
+            <div id="eq" style="display: none;">
+            </div>
+            </form>
+          </div>
+    </body>
+</html>
