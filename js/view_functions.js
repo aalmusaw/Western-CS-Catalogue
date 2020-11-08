@@ -178,6 +178,7 @@ function clearUniInfo() {
 }
 
 function fetchUniList() {
+  document.getElementById('uni_name').value = '-';
   clearUniInfo();
   document.getElementById('uni_prov_table').style = 'display: block;';
   $.ajax({
