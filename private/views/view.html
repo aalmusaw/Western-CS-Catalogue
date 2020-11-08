@@ -42,7 +42,7 @@
                         <label for="ordered_by">Order By</label>
                     </div>
                     <div class="col-75">
-                        <select id="ordered_by" name="ordered_by">
+                        <select id="ordered_by" name="ordered_by" onchange="resetWesternCSTable()">
                             <option value="course_code">Course Number</option>
                             <option value="course_name">Course Name</option>
                         </select>
@@ -53,12 +53,25 @@
                         <label for="ordered_dir">Ordering Direction</label>
                     </div>
                     <div class="col-75">
-                        <select id="ordered_dir" name="ordered_dir">
+                        <select id="ordered_dir" name="ordered_dir" onchange="resetWesternCSTable()">
                             <option value="asc">Ascending</option>
                             <option value="desc">Descending</option>
                         </select>
                       </div>
                 </div>
+                <table>
+                    <thead>
+                        <tr>
+                           <th scope="col">Course Number</th>
+                           <th scope="col">Course Name</th>
+                           <th scope="col">Weight</th>
+                           <th scope="col">Suffix</th>
+                        </tr>
+                    </thead>
+                    <tbody id="wcs_table">
+
+                    </tbody>
+                </table>
             </div>
             <div id="university" style="display: none;">
                 <div class="row">

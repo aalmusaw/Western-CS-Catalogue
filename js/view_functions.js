@@ -40,6 +40,31 @@ function onSelectEq() {
     to_hide[1].style.display = 'none';
 }
 
+function resetWesternCSTable() {
+    $( '#wcs_table' ).empty()
+    $.ajax({
+        url: '../models/search.php',
+        type: 'get',
+        data: { 
+          entity: 'wcs_course',
+          order_by: $('#wcs_course > div > div > #ordered_by').value,
+          order_dir: $('#wcs_course > div > div > #ordered_dir').value
+        },
+        success: function(response) {
+            let $wcs_table_body = $( '#wcs_table' ), 
+            str = response, 
+            html = jQuery.parseHTML( str ), 
+            nodeNames = []; 
+             
+          $wcs_table_body.append( html );
+        },
+        error: function(xhr) {
+          //Do Something to handle error
+        }
+      });
+
+}
+
 function resetUniNames() {
     // clear options to prevent duplications
     $( '#uni_name' ).empty()
@@ -65,3 +90,4 @@ function resetUniNames() {
         }
       });
 }
+
