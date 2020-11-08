@@ -35,7 +35,7 @@ function onSelectUniversity() {
           entity: 'university'
         },
         success: function(response) {
-            document.getElementById('uni_name').append($(response));
+            document.getElementById('uni_name').append($.parseHTML(response));
         },
         error: function(xhr) {
           //Do Something to handle error
