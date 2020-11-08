@@ -80,7 +80,7 @@
                         <label for="uni_name">Search By University</label>
                     </div>
                     <div class="col-75">
-                        <select id="uni_name" name="uni_name">
+                        <select id="uni_name" name="uni_name" onchange="fetchUniInfo()">
                             <option value="">-</option>
                         </select>
                       </div>
@@ -121,6 +121,19 @@
                         </thead>
                         <tbody id="uni_courses">
                             
+                        </tbody>
+                    </table>
+                </div>
+                <div id="uni_prov_table" style="display: none;">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th scope="col">Name</th>
+                                <th scope="col">Nickname</th>
+                            </tr>
+                        </thead>
+                        <tbody id="uni_prov_tbody">
+
                         </tbody>
                     </table>
                 </div>
