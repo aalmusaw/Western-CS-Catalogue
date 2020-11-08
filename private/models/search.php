@@ -32,8 +32,6 @@ else if ($entity==='university') {
 
 }
 
-$connection.close();
-
 
 
 
