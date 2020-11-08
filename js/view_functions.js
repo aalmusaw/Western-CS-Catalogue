@@ -173,7 +173,7 @@ function fetchCourseInfo() {
   });
 }
 
-clearUniInfo() {
+function clearUniInfo() {
   $( '#uni_detailed_tables' ).empty();
 }
 
