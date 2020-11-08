@@ -47,8 +47,8 @@ function resetWesternCSTable() {
         type: 'get',
         data: { 
           entity: 'wcs_course',
-          order_by: $('#wcs_ordered_by').value,
-          order_dir: $('#wcs_order_dir').value
+          order_by: $('#wcs_ordered_by').val(),
+          order_dir: $('#wcs_order_dir').val()
         },
         success: function(response) {
             let $wcs_table_body = $( '#wcs_table' ), 
