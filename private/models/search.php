@@ -21,7 +21,7 @@ if ($entity==='wcs_course') {
     $cols = array('course_code', 'course_name', 'weight', 'suffix');
     while ($row = mysqli_fetch_assoc($result)) {
         echo '<tr>';
-        for ($i = 0; i < count($cols); i++) {
+        for ($i = 0; i < count($cols); $i++) {
             echo '<td>';
             echo $row[$cols[$i]];
             echo '</td>';
