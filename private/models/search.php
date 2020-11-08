@@ -43,7 +43,39 @@ else if ($entity==='university') {
        }
        mysqli_free_result($result);
     }
+    if(isset($_GET['uni_name'])) {
+        $query = "SELECT * FROM university WHERE name='" . $_GET['uni_name'] . "'";
+        $result = mysqli_query($connection,$query);
+        $row = mysqli_fetch_assoc($result);
+        echo '<tr>';
+        echo '<td>' . $row['university_id'] . '</td>';
+        echo '<td>' . $row['name'] . '</td>';
+        echo '<td>' . $row['city'] . '</td>';
+        echo '<td>' . $row['province_abv'] . '</td>';
+        echo '<td>' . $row['nickname'] . '</td>';
+        echo '</tr>';
+        mysqli_free_result($result);
+    }
 
+}
+else if ($entity==='ocs_course') {
+    if(isset($_GET['uni_name'])) {
+        $query = "SELECT course_code, course_name, year, weight FROM ocs_course INNER JOIN university
+        ON ocs_course.offered_by=university.university_id WHERE university.name='" . $_GET['uni_name'] . "'";
+        $result = mysqli_query($connection,$query);
+        $cols = array('course_code', 'course_name', 'year', 'weight');
+        while ($row = mysqli_fetch_assoc($result)) {
+            echo '<tr>';
+            for ($i = 0; $i < count($cols); $i++) {
+                echo '<td>';
+                echo $row[$cols[$i]];
+                echo '</td>';
+            }
+            echo '</tr>';
+       }
+       mysqli_free_result($result);
+
+    } 
 }
 
 mysqli_close($connection);

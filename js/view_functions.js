@@ -120,3 +120,58 @@ function resetUniProv() {
         }
       });
 }
+
+function fetchUniInfo() {
+  // clear old info if there is any
+  $( '#uni_profile' ).empty()
+  $( '#uni_courses' ).empty()
+  // clear province selection
+  document.getElementById('uni_province_abv').value = '-';
+  document.getElementById('uni_prov_table').style = 'display: none;';
+  document.getElementById('uni_detailed_tables').style = 'display: block;';
+  $.ajax({
+    url: '../models/search.php',
+    type: 'get',
+    data: { 
+      entity: 'university',
+      uni_name: $( '#uni_name' ).val()
+    },
+    success: function(response) {
+        let $uni_profile_select = $( '#uni_profile' ), 
+        str = response, 
+        html = jQuery.parseHTML( str ), 
+        nodeNames = []; 
+         
+        $uni_profile_select.append( html );
+    },
+    error: function(xhr) {
+      //Do Something to handle error
+    }
+  });
+  fetchCourseInfo();
+}
+
+function fetchCourseInfo() {
+  $.ajax({
+    url: '../models/search.php',
+    type: 'get',
+    data: { 
+      entity: 'ocs_course',
+      uni_name: $( '#uni_name' ).val()
+    },
+    success: function(response) {
+        let $uni_courses_select = $( '#uni_courses' ), 
+        str = response, 
+        html = jQuery.parseHTML( str ), 
+        nodeNames = []; 
+         
+        $uni_courses_select.append( html );
+    },
+    error: function(xhr) {
+      //Do Something to handle error
+    }
+  });
+}
+
+
+}
