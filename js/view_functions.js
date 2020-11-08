@@ -29,6 +29,8 @@ function onSelectUniversity() {
 
     // load uni choices
     resetUniNames();
+    resetUniProv();
+
 }
 
 function onSelectEq() {
@@ -94,8 +96,8 @@ function resetUniNames() {
 
 function resetUniProv() {
   // clear options to prevent duplications
-  $( 'uni_province_abv' ).empty()
-  $( '#uni_name' ).append('<option value="-">-</option>')
+  $( '#uni_province_abv' ).empty()
+  $( '#uni_province_abv' ).append('<option value="-">-</option>')
 
       // do ajax request to get uni names
       $.ajax({
@@ -106,12 +108,12 @@ function resetUniProv() {
           droplist: 'province_abv'
         },
         success: function(response) {
-            let $uni_name_select = $( '#uni_name' ), 
+            let $uni_prov_select = $( '#uni_province_abv' ), 
             str = response, 
             html = jQuery.parseHTML( str ), 
             nodeNames = []; 
              
-          $uni_name_select.append( html );
+          $uni_prov_select.append( html );
         },
         error: function(xhr) {
           //Do Something to handle error
