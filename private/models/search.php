@@ -4,6 +4,7 @@ include 'connectdb.php';
 $entity = $_GET['entity'];
 if ($entity==='wcs_course') {
     $query = "SELECT * FROM wcs_course ORDER BY $order_by $order_dir";
+    echo $query;
     $result = mysqli_query($connection,$query);
     $cols = array('course_code', 'course_name', 'weight', 'suffix');
     while ($row = mysqli_fetch_assoc($result)) {
@@ -19,7 +20,7 @@ if ($entity==='wcs_course') {
 
 }
 else if ($entity==='university') {
-    $query = "SELECT name FROM university ORDER BY province_abv;";
+    $query = "SELECT name FROM university ORDER BY province_abv";
     $result = mysqli_query($connection,$query);
     while ($row = mysqli_fetch_assoc($result)) {
         echo '<option value="';
@@ -31,6 +32,8 @@ else if ($entity==='university') {
    mysqli_free_result($result);
 
 }
+
+mysqli_close($connection);
 
 
 
