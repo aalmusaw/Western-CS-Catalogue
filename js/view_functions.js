@@ -41,16 +41,14 @@ function onSelectEq() {
 }
 
 function resetWesternCSTable() {
-    console.log($('#wcs_course > div > div > #ordered_by').value);
-    console.log($('#wcs_course > div > div > #ordered_dir').value);
     $( '#wcs_table' ).empty()
     $.ajax({
         url: '../models/search.php',
         type: 'get',
         data: { 
           entity: 'wcs_course',
-          order_by: $('#wcs_course > div > div > #ordered_by').value,
-          order_dir: $('#wcs_course > div > div > #ordered_dir').value
+          order_by: $('#wcs_ordered_by').value,
+          order_dir: $('#wcs_order_dir').value
         },
         success: function(response) {
             let $wcs_table_body = $( '#wcs_table' ), 
