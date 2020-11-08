@@ -1,4 +1,5 @@
 <?php
+
 include 'connectdb.php';
 $entity = $_GET['entity'];
 if ($entity==='university') {
@@ -30,4 +31,4 @@ if ($entity==='university') {
 
 
 
->
+?>
