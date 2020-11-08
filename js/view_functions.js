@@ -120,4 +120,3 @@ function resetUniProv() {
         }
       });
 }
-}
