@@ -175,7 +175,8 @@ table {
   color: #000000;
 }
 
-th td {
+td {
+  background-color: #FFFFFF;
   padding-top: 12px;
   padding-bottom: 12px;
   padding-left: 6px;
@@ -183,7 +184,18 @@ th td {
   border-color: #4F2D82;
   border-style: solid;
   padding: 5px;
-  
+}
+
+th {
+  background-color: #4F2D82;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  padding-left: 6px;
+  border-width: 2px;
+  border-color: #4F2D82;
+  border-style: solid;
+  padding: 5px;
+  color:#FFFFFF;
 }
 
 table thead {
