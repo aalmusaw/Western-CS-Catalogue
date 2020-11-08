@@ -3,7 +3,7 @@
 include 'connectdb.php';
 $entity = $_GET['entity'];
 if ($entity==='wcs_course') {
-    $query = "SELECT * FROM wcs_course ORDER BY $order_by $order_dir;";
+    $query = "SELECT * FROM wcs_course ORDER BY $order_by $order_dir";
     $result = mysqli_query($connection,$query);
     $cols = array('course_code', 'course_name', 'weight', 'suffix');
     while ($row = mysqli_fetch_assoc($result)) {
