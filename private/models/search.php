@@ -4,12 +4,11 @@ include 'connectdb.php';
 $entity = $_GET['entity'];
 if ($entity==='wcs_course') {
     $query = "SELECT * FROM wcs_course ORDER BY " . $_GET['order_by'] . " " . $_GET['order_dir'];
-    echo $query;
     $result = mysqli_query($connection,$query);
     $cols = array('course_code', 'course_name', 'weight', 'suffix');
     while ($row = mysqli_fetch_assoc($result)) {
         echo '<tr>';
-        for ($i = 0; i < count($cols); $i++) {
+        for ($i = 0; $i < count($cols); $i++) {
             echo '<td>';
             echo $row[$cols[$i]];
             echo '</td>';
