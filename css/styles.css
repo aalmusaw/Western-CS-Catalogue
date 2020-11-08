@@ -160,6 +160,7 @@ p a {
     clear: both;
   }
 
+/* style tables and their components */
 table {
   margin-top: 20px;
   margin-left: 320px;
@@ -170,17 +171,20 @@ table {
 
 th td {
   border: 1px solid #ddd;
-  padding: 8px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  padding-left: 6px;
 }
 
+tr {
+  background-color: #FFFFFF;
+}
 tr:nth-child(even){background-color: #f2f2f2;}
 
 tr:hover {background-color: #ddd;}
 
 th {
-  padding-top: 12px;
-  padding-bottom: 12px;
-  text-align: center;
+  text-align: left;
   background-color: #4F2D82;
-  color: white;
+  color: FFFFFF;
 }
