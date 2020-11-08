@@ -43,6 +43,7 @@ function onSelectEq() {
 function resetUniNames() {
     // clear options to prevent duplications
     $( '#uni_name' ).empty()
+    $( '#uni_name' ).append('<option value="-">-</option>')
 
     // do ajax request to get uni names
     $.ajax({
