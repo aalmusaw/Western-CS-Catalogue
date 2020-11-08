@@ -75,7 +75,8 @@ function resetUniNames() {
         url: '../models/search.php',
         type: 'get',
         data: { 
-          entity: 'university'
+          entity: 'university',
+          droplist: 'university'
         },
         success: function(response) {
             let $uni_name_select = $( '#uni_name' ), 
@@ -91,3 +92,30 @@ function resetUniNames() {
       });
 }
 
+function resetUniProv() {
+  // clear options to prevent duplications
+  $( 'uni_province_abv' ).empty()
+  $( '#uni_name' ).append('<option value="-">-</option>')
+
+      // do ajax request to get uni names
+      $.ajax({
+        url: '../models/search.php',
+        type: 'get',
+        data: { 
+          entity: 'university',
+          droplist: 'province_abv'
+        },
+        success: function(response) {
+            let $uni_name_select = $( '#uni_name' ), 
+            str = response, 
+            html = jQuery.parseHTML( str ), 
+            nodeNames = []; 
+             
+          $uni_name_select.append( html );
+        },
+        error: function(xhr) {
+          //Do Something to handle error
+        }
+      });
+}
+}

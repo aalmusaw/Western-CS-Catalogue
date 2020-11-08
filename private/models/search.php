@@ -19,16 +19,30 @@ if ($entity==='wcs_course') {
 
 }
 else if ($entity==='university') {
-    $query = "SELECT name FROM university ORDER BY province_abv";
-    $result = mysqli_query($connection,$query);
-    while ($row = mysqli_fetch_assoc($result)) {
-        echo '<option value="';
-        echo $row["name"];
-        echo '"> ';
-        echo $row["name"];
-        echo '</option>';
-   }
-   mysqli_free_result($result);
+    if($_GET['droplist'] === 'university') {
+        $query = "SELECT name FROM university ORDER BY province_abv";
+        $result = mysqli_query($connection,$query);
+        while ($row = mysqli_fetch_assoc($result)) {
+            echo '<option value="';
+            echo $row["name"];
+            echo '"> ';
+            echo $row["name"];
+            echo '</option>';
+       }
+       mysqli_free_result($result);
+    }
+    else if($_GET['droplist'] === 'province_abv') {
+        $query = "SELECT province_abv FROM university ORDER BY province_abv";
+        $result = mysqli_query($connection,$query);
+        while ($row = mysqli_fetch_assoc($result)) {
+            echo '<option value="';
+            echo $row["province_abv"];
+            echo '"> ';
+            echo $row["province_abv"];
+            echo '</option>';
+       }
+       mysqli_free_result($result);
+    }
 
 }
 
