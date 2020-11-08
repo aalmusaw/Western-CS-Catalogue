@@ -167,24 +167,25 @@ table {
   font-family: 'Montserrat', sans-serif;
   border-collapse: collapse;
   width: 75%;
+  background-color: #FFFFFF;
+  border-collapse: collapse;
+  border-width: 2px;
+  border-color: #4F2D82;
+  border-style: solid;
+  color: #000000;
 }
 
 th td {
-  border: 1px solid #ddd;
   padding-top: 12px;
   padding-bottom: 12px;
   padding-left: 6px;
+  border-width: 2px;
+  border-color: #4F2D82;
+  border-style: solid;
+  padding: 5px;
+  
 }
 
-tr {
-  background-color: #FFFFFF;
-}
-tr:nth-child(even){background-color: #f2f2f2;}
-
-tr:hover {background-color: #ddd;}
-
-th {
-  text-align: left;
+table.customTable thead {
   background-color: #4F2D82;
-  color: FFFFFF;
 }
