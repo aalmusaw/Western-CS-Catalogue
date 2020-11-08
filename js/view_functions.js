@@ -178,8 +178,12 @@ function clearUniInfo() {
 }
 
 function fetchUniList() {
+  // clear uni info
   document.getElementById('uni_name').value = '-';
   clearUniInfo();
+
+  // show uni list and clear old data
+  $( '#uni_prov_tbody' ).empty();
   document.getElementById('uni_prov_table').style = 'display: block;';
   $.ajax({
     url: '../models/search.php',
