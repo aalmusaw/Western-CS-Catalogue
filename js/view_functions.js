@@ -51,7 +51,6 @@ function resetWesternCSTable() {
           order_dir: $('#wcs_order_dir').val()
         },
         success: function(response) {
-            console.log(response);
             let $wcs_table_body = $( '#wcs_table' ), 
             str = response, 
             html = jQuery.parseHTML( str ), 
