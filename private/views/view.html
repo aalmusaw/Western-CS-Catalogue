@@ -90,7 +90,7 @@
                         <label for="uni_province_abv">Search By Province</label>
                     </div>
                     <div class="col-75">
-                        <select id="uni_province_abv" name="uni_province_abv">
+                        <select id="uni_province_abv" name="uni_province_abv" onchange="fetchUniList()">
                             <option value="">-</option>
                         </select>
                       </div>
@@ -124,6 +124,7 @@
                         </tbody>
                     </table>
                 </div>
+                <script>clearUniInfo();</script>
                 <div id="uni_prov_table" style="display: none;">
                     <table>
                         <thead>

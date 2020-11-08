@@ -123,8 +123,8 @@ function resetUniProv() {
 
 function fetchUniInfo() {
   // clear old info if there is any
-  $( '#uni_profile' ).empty()
-  $( '#uni_courses' ).empty()
+  $( '#uni_profile' ).empty();
+  $( '#uni_courses' ).empty();
   // clear province selection
   document.getElementById('uni_province_abv').value = '-';
   document.getElementById('uni_prov_table').style = 'display: none;';
@@ -166,6 +166,34 @@ function fetchCourseInfo() {
         nodeNames = []; 
          
         $uni_courses_select.append( html );
+    },
+    error: function(xhr) {
+      //Do Something to handle error
+    }
+  });
+}
+
+clearUniInfo() {
+  $( '#uni_detailed_tables' ).empty();
+}
+
+function fetchUniList() {
+  clearUniInfo();
+  document.getElementById('uni_prov_table').style = 'display: block;';
+  $.ajax({
+    url: '../models/search.php',
+    type: 'get',
+    data: { 
+      entity: 'university',
+      prov: $( '#uni_province_abv' ).val()
+    },
+    success: function(response) {
+        let $uni_prov_tbody_select = $( '#uni_prov_tbody' ), 
+        str = response, 
+        html = jQuery.parseHTML( str ), 
+        nodeNames = []; 
+         
+        $uni_prov_tbody_select.append( html );
     },
     error: function(xhr) {
       //Do Something to handle error

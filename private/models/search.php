@@ -57,6 +57,22 @@ else if ($entity==='university') {
         mysqli_free_result($result);
     }
 
+    if(isset($_GET['prov'])) {
+        $query = "SELECT name, nickname FROM ORDER BY province_abv";
+        $result = mysqli_query($connection,$query);
+        $cols = array('name', 'nickname');
+        while ($row = mysqli_fetch_assoc($result)) {
+            echo '<tr>';
+            for ($i = 0; $i < count($cols); $i++) {
+                echo '<td>';
+                echo $row[$cols[$i]];
+                echo '</td>';
+            }
+            echo '</tr>';
+       }
+       mysqli_free_result($result);
+    }
+
 }
 else if ($entity==='ocs_course') {
     if(isset($_GET['uni_name'])) {
