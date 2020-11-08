@@ -174,7 +174,7 @@ function fetchCourseInfo() {
 }
 
 function clearUniInfo() {
-  $( '#uni_detailed_tables' ).empty();
+  $( '#uni_detailed_tables' ).hide();
 }
 
 function fetchUniList() {

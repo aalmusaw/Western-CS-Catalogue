@@ -58,7 +58,7 @@ else if ($entity==='university') {
     }
 
     if(isset($_GET['prov'])) {
-        $query = "SELECT name, nickname FROM ORDER BY province_abv";
+        $query = "SELECT name, nickname FROM university WHERE province_abv='" . $_GET['prov'] . "'";
         $result = mysqli_query($connection,$query);
         $cols = array('name', 'nickname');
         while ($row = mysqli_fetch_assoc($result)) {
