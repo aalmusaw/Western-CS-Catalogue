@@ -35,7 +35,12 @@ function onSelectUniversity() {
           entity: 'university'
         },
         success: function(response) {
-            document.getElementById('uni_name').append($.parseHTML(response));
+            let $uni_name_select = $( "#uni_name" ), 
+            str = response, 
+            html = jQuery.parseHTML( str ), 
+            nodeNames = []; 
+             
+          $uni_name_select.append( html );
         },
         error: function(xhr) {
           //Do Something to handle error
