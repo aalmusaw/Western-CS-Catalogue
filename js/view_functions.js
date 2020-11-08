@@ -41,6 +41,8 @@ function onSelectEq() {
 }
 
 function resetWesternCSTable() {
+    console.log($('#wcs_course > div > div > #ordered_by').value);
+    console.log($('#wcs_course > div > div > #ordered_dir').value);
     $( '#wcs_table' ).empty()
     $.ajax({
         url: '../models/search.php',
