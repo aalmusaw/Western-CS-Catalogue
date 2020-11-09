@@ -15,6 +15,7 @@ if ($entity==='wcs_course') {
         }
         echo '</tr>';
    }
+   mysqli_free_result($result);
 
 }
 else if ($entity==='university') {
@@ -28,6 +29,7 @@ else if ($entity==='university') {
             echo $row["name"];
             echo '</option>';
        }
+       mysqli_free_result($result);
     }
     else if($_GET['droplist'] === 'province_abv') {
         $query = "SELECT DISTINCT(province_abv) FROM university ORDER BY province_abv";
@@ -39,6 +41,7 @@ else if ($entity==='university') {
             echo $row["province_abv"];
             echo '</option>';
        }
+       mysqli_free_result($result);
     }
     if(isset($_GET['uni_name'])) {
         $query = "SELECT * FROM university WHERE name='" . $_GET['uni_name'] . "'";
@@ -51,6 +54,7 @@ else if ($entity==='university') {
         echo '<td>' . $row['province_abv'] . '</td>';
         echo '<td>' . $row['nickname'] . '</td>';
         echo '</tr>';
+        mysqli_free_result($result);
     }
 
     if(isset($_GET['prov'])) {
@@ -66,6 +70,7 @@ else if ($entity==='university') {
             }
             echo '</tr>';
        }
+       mysqli_free_result($result);
     }
 
     if(isset($_GET['by_eq'])) {
@@ -83,6 +88,7 @@ else if ($entity==='university') {
                 }
                 echo '</tr>';
             }
+            mysqli_free_result($result);
         }
         else {
             $query = "SELECT name, nickname FROM university WHERE university_id NOT IN 
@@ -98,6 +104,7 @@ else if ($entity==='university') {
                 }
                 echo '</tr>';
             }
+            mysqli_free_result($result);
         }
     }
 
@@ -117,6 +124,8 @@ else if ($entity==='ocs_course') {
             }
             echo '</tr>';
        }
+       mysqli_free_result($result);
+
     } 
 }
 
@@ -128,12 +137,11 @@ else if ($entity==='eq') {
             while ($row = mysqli_fetch_assoc($result)) {
                 echo '<option value="' . $row['course_code'] . '">' . $row['course_code'] . "</option>";
             }
-            
+            mysqli_free_result($result);
         }
     }
 }
 
-mysqli_free_result($result);
 mysqli_close($connection);
 
 
