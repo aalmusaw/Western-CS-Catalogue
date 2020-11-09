@@ -12,20 +12,16 @@ function onSelectEntity(entity) {
 
 function onSelectWCSCourse() {
     // hide divs for other searches
-    let to_show = document.getElementById('wcs_course');
-    let to_hide = [document.getElementById('university'), document.getElementById('eq')];
-    to_show.style.display = 'block';
-    to_hide[0].style.display = 'none';
-    to_hide[1].style.display = 'none';
+    $('#wcs_course').show();
+    $('#university').hide();
+    $('#eq').hide();
 }
 
 function onSelectUniversity() {
     // hide divs for other searches
-    let to_show = document.getElementById('university');
-    let to_hide = [document.getElementById('wcs_course'), document.getElementById('eq')];
-    to_show.style.display = 'block';
-    to_hide[0].style.display = 'none';
-    to_hide[1].style.display = 'none';
+    $('#university').show();
+    $('#wcs_course').hide();
+    $('#eq').hide();
 
     // load uni choices
     resetUniNames();
@@ -35,11 +31,10 @@ function onSelectUniversity() {
 
 function onSelectEq() {
     // hide divs for other searches
-    let to_show = document.getElementById('eq');
-    let to_hide = [document.getElementById('wcs_course'), document.getElementById('university')];
-    to_show.style.display = 'block';
-    to_hide[0].style.display = 'none';
-    to_hide[1].style.display = 'none';
+    $('#eq').show();
+    $('#wcs_course').hide()
+    $('#university').hide();
+    resetWCSlist();
 }
 
 function resetWesternCSTable() {
@@ -240,4 +235,29 @@ function listUnisByEq() {
       //Do Something to handle error
     }
   });
+}
+
+function resetWCSlist() {
+  $('#eq_wcs_dropbox').empty();
+  $('#eq_wcs_dropbox').append('<option value="">-</option>');
+  $.ajax({
+    url: '../models/search.php',
+    type: 'get',
+    data: { 
+      entity: 'eq',
+      dropbox: 'wcs'
+    },
+    success: function(response) {
+        let $eq_wcs_dropbox_select = $( '#eq_wcs_dropbox' ), 
+        str = response, 
+        html = jQuery.parseHTML( str ), 
+        nodeNames = []; 
+         
+      $eq_wcs_dropbox_select.append( html );
+    },
+    error: function(xhr) {
+      //Do Something to handle error
+    }
+  });
+
 }
