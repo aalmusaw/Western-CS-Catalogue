@@ -125,11 +125,13 @@ function fetchUniInfo() {
   // clear old info if there is any
   $( '#uni_profile' ).empty();
   $( '#uni_courses' ).empty();
-  // clear province selection
+  // clear unrelated info and selections
   document.getElementById('uni_province_abv').value = '-';
   $('#uni_prov_table').hide();
   $('#unis_by_eq_table').hide();
   $('#uni_detailed_tables').show();
+  $('#uni_offers_eq').prop('checked', false);
+
   
   $.ajax({
     url: '../models/search.php',
@@ -180,10 +182,11 @@ function clearUniInfo() {
 }
 
 function fetchUniList() {
-  // clear uni info
+  // clear unrelated info
   document.getElementById('uni_name').value = '-';
   clearUniInfo();
   $('#unis_by_eq_table').hide();
+  $('#uni_offers_eq').prop('checked', false);
 
 
   // show uni list and clear old data
