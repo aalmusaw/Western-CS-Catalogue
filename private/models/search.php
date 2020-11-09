@@ -130,7 +130,7 @@ else if ($entity==='ocs_course') {
 }
 
 else if ($entity==='eq') {
-    if(isset(($_GET['dropbox'])) {
+    if(isset($_GET['dropbox'])) {
         if ($_GET['dropbox'] == 'wcs') {
             $query = "SELECT course_code FROM wcs_course ORDER BY course_code";
             $result = mysqli_query($connection, $query);
