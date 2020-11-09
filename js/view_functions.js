@@ -223,7 +223,7 @@ function listUnisByEq() {
     type: 'get',
     data: { 
       entity: 'university',
-      by_eq: $('#uni_offers_eq').val() === 'true'
+      by_eq: $('#uni_offers_eq').is(':checked')
     },
     success: function(response) {
         let $unis_by_eq_select = $( '#unis_by_eq' ), 
