@@ -183,12 +183,12 @@ function fetchUniList() {
   // clear uni info
   document.getElementById('uni_name').value = '-';
   clearUniInfo();
+  $('#unis_by_eq_table').hide();
 
 
   // show uni list and clear old data
+  $('#uni_prov_table').show();
   $( '#uni_prov_tbody' ).empty();
-  $('#uni_prov_table').hide();
-  $('#unis_by_eq_table').hide();
   $.ajax({
     url: '../models/search.php',
     type: 'get',
