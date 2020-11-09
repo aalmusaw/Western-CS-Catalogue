@@ -73,6 +73,41 @@ else if ($entity==='university') {
        mysqli_free_result($result);
     }
 
+    if(isset($_GET['by_eq'])) {
+        if ($_GET['by_eq'] === 'true') {
+            $query = "SELECT name, nickname FROM university WHERE university_id IN 
+                (SELECT offered_by FROM ocs_course)";
+            $result = mysqli_query($connection,$query);
+            $cols = array('name', 'nickname');
+            while ($row = mysqli_fetch_assoc($result)) {
+                echo '<tr>';
+                for ($i = 0; $i < count($cols); $i++) {
+                    echo '<td>';
+                    echo $row[$cols[$i]];
+                    echo '</td>';
+                }
+                echo '</tr>';
+            }
+            mysqli_free_result($result);
+        }
+        else {
+            $query = "SELECT name, nickname FROM university WHERE university_id NOT IN 
+                (SELECT offered_by FROM ocs_course)";
+            $result = mysqli_query($connection,$query);
+            $cols = array('name', 'nickname');
+            while ($row = mysqli_fetch_assoc($result)) {
+                echo '<tr>';
+                for ($i = 0; $i < count($cols); $i++) {
+                    echo '<td>';
+                    echo $row[$cols[$i]];
+                    echo '</td>';
+                }
+                echo '</tr>';
+            }
+            mysqli_free_result($result);
+        }
+    }
+
 }
 else if ($entity==='ocs_course') {
     if(isset($_GET['uni_name'])) {

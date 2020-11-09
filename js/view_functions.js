@@ -30,7 +30,7 @@ function onSelectUniversity() {
     // load uni choices
     resetUniNames();
     resetUniProv();
-
+    listUnisByEq();
 }
 
 function onSelectEq() {
@@ -127,8 +127,10 @@ function fetchUniInfo() {
   $( '#uni_courses' ).empty();
   // clear province selection
   document.getElementById('uni_province_abv').value = '-';
-  document.getElementById('uni_prov_table').style = 'display: none;';
-  document.getElementById('uni_detailed_tables').style = 'display: block;';
+  $('#uni_prov_table').hide();
+  $('#unis_by_eq_table').hide();
+  $('#uni_detailed_tables').show();
+  
   $.ajax({
     url: '../models/search.php',
     type: 'get',
@@ -182,9 +184,11 @@ function fetchUniList() {
   document.getElementById('uni_name').value = '-';
   clearUniInfo();
 
+
   // show uni list and clear old data
   $( '#uni_prov_tbody' ).empty();
-  document.getElementById('uni_prov_table').style = 'display: block;';
+  $('#uni_prov_table').hide();
+  $('#unis_by_eq_table').hide();
   $.ajax({
     url: '../models/search.php',
     type: 'get',
@@ -199,6 +203,35 @@ function fetchUniList() {
         nodeNames = []; 
          
         $uni_prov_tbody_select.append( html );
+    },
+    error: function(xhr) {
+      //Do Something to handle error
+    }
+  });
+}
+
+function listUnisByEq() {
+  // hide other uni divs
+  $('#uni_prov_table').hide();
+  clearUniInfo();
+  // clear old data
+  $('#unis_by_eq').empty();
+  // unhide the table
+  $('#unis_by_eq_table').show();
+  $.ajax({
+    url: '../models/search.php',
+    type: 'get',
+    data: { 
+      entity: 'university',
+      by_eq: $('#uni_offers_eq').val() === 'true'
+    },
+    success: function(response) {
+        let $unis_by_eq_select = $( '#unis_by_eq' ), 
+        str = response, 
+        html = jQuery.parseHTML( str ), 
+        nodeNames = []; 
+         
+        $unis_by_eq_select.append( html );
     },
     error: function(xhr) {
       //Do Something to handle error
