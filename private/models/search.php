@@ -16,9 +16,9 @@ if ($entity==='wcs_course') {
                     echo '</td>';
                 }
                 else {
-                    echo '<td contenteditable >';
+                    echo '<td><div contenteditable="true">';
                     echo $row[$cols[$i]];
-                    echo '</td>';
+                    echo '</div></td>';
                 }
             }
             echo '</tr>';
