@@ -1,26 +1,28 @@
-$('td[contenteditable=true]').blur(function () {
-  console.log('blur on td fires!')
-  let id = $(this).parent('tbody').attr('id');
-  if (id === 'wcs_table') {
-    let row = $(this).parent().children().map(x => x.value);
-    $.post('../models/search.php',
-    {edit:true,
-    table:'western_cs',
-    course_code:row[0],
-    course_name:row[1],
-    weight:row[2],
-    suffix:row[3]
+$('document').ready(function () {
+  $('td[contenteditable=true]').blur(function () {
+    console.log('blur on td fires!')
+    let id = $(this).parent('tbody').attr('id');
+    if (id === 'wcs_table') {
+      let row = $(this).parent().children().map(x => x.value);
+      $.post('../models/search.php',
+      {edit:true,
+      table:'western_cs',
+      course_code:row[0],
+      course_name:row[1],
+      weight:row[2],
+      suffix:row[3]
+      }
+      , function(response) {
+        if (response === 'true') {
+          alert("Update Successful!");
+        }
+        else {
+          alert("Update Failed :(");
+        }
+      });
     }
-    , function(response) {
-      if (response === 'true') {
-        alert("Update Successful!");
-      }
-      else {
-        alert("Update Failed :(");
-      }
-    });
-  }
-});
+  });
+})
 
 function onSelectEntity(entity) {
     if (entity==='wcs_course') {

@@ -10,7 +10,7 @@ if ($entity==='wcs_course') {
         while ($row = mysqli_fetch_assoc($result)) {
             echo '<tr>';
             for ($i = 0; $i < count($cols); $i++) {
-                if ($col[$i] === 'course_code') {
+                if ($i === 0) {
                     echo '<td>';
                     echo $row[$cols[$i]];
                     echo '</td>';
