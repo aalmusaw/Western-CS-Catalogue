@@ -1,4 +1,5 @@
 $('td[contenteditable=true]').blur(function () {
+  console.log('blur on td fires!')
   let id = $(this).parent('tbody').attr('id');
   if (id === 'wcs_table') {
     let row = $(this).parent().children().map(x => x.value);
