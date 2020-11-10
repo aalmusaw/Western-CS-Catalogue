@@ -21,5 +21,218 @@
                 </ul>
             </nav>
         </header>
+        <div class="container">
+            <form class="query_panel">
+            <div class="row">
+              <div class="col-25">
+                <label for="entity">Search For</label>
+              </div>
+              <div class="col-75">
+                <select id="entity" name="entity" onchange="onSelectEntity(this.value)">
+                    <option value="wcs_course">Western Courses</option>
+                    <option value="university">Universities</option>
+                    <option value="is_equivalent">Equivalent Courses</option>
+                </select>
+              </div>
+            </div>
+            <div id="wcs_course">
+                <div class="row">
+                    <div class="col-25">
+                        <label for="wcs_ordered_by">Order By</label>
+                    </div>
+                    <div class="col-75">
+                        <select id="wcs_ordered_by" name="wcs_ordered_by" onchange="resetWesternCSTable()">
+                            <option value="course_code">Course Number</option>
+                            <option value="course_name">Course Name</option>
+                        </select>
+                      </div>
+                </div>
+                <div class="row">
+                    <div class="col-25">
+                        <label for="wcs_order_dir">Ordering Direction</label>
+                    </div>
+                    <div class="col-75">
+                        <select id="wcs_order_dir" name="wcs_order_dir" onchange="resetWesternCSTable()">
+                            <option value="asc">Ascending</option>
+                            <option value="desc">Descending</option>
+                        </select>
+                      </div>
+                </div>
+                <table>
+                    <thead>
+                        <tr>
+                           <th scope="col">Course Number</th>
+                           <th scope="col">Course Name</th>
+                           <th scope="col">Weight</th>
+                           <th scope="col">Suffix</th>
+                        </tr>
+                    </thead>
+                    <tbody id="wcs_table">
+
+                    </tbody>
+                </table>
+                <script>resetWesternCSTable();</script>
+            </div>
+            <div id="university" style="display: none;">
+                <div class="row">
+                    <div class="col-25">
+
+                    </div>
+                    <div class="col-75">
+                        <h2> Warning: you may only search using one criterion. You cannot combine criteria. </h2>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-25">
+                        <label for="uni_name">Search By University</label>
+                    </div>
+                    <div class="col-75">
+                        <select id="uni_name" name="uni_name" onchange="fetchUniInfo()">
+                            <option value="">-</option>
+                        </select>
+                      </div>
+                </div>
+                <div class="row">
+                    <div class="col-25">
+                        <label for="uni_province_abv">Search By Province</label>
+                    </div>
+                    <div class="col-75">
+                        <select id="uni_province_abv" name="uni_province_abv" onchange="fetchUniList()">
+                            <option value="">-</option>
+                        </select>
+                      </div>
+                </div>
+                <div id="list_unis_by_eq">
+                    <div class="row">
+                        <div class="col-25">
+                            <label for="unis_by_eq_checks">Offering Equivalent Courses</label>
+                        </div>
+                        <div class="col-75">
+                            <input type="checkbox" id="uni_offers_eq" name="uni_offers_eq" value="true" onchange="listUnisByEq()">
+                        </div>
+                    </div>
+                </div>
+                <div id="uni_detailed_tables" style="display: none;">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th scope="col">ID</th>
+                                <th scope="col">Name</th>
+                                <th scope="col">City</th>
+                                <th scope="col">Province</th>
+                                <th scope="col">Nickname</th>
+                            </tr>
+                        </thead>
+                        <tbody id="uni_profile">
+
+                        </tbody>
+                    </table>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th scope="col">Course Number</th>
+                                <th scope="col">Course Name</th>
+                                <th scope="col">Year</th>
+                                <th scope="col">Weight</th>
+                            </tr>
+                        </thead>
+                        <tbody id="uni_courses">
+                            
+                        </tbody>
+                    </table>
+                </div>
+                <script>clearUniInfo();</script>
+                <div id="uni_prov_table" style="display: none;">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th scope="col">Name</th>
+                                <th scope="col">Nickname</th>
+                            </tr>
+                        </thead>
+                        <tbody id="uni_prov_tbody">
+
+                        </tbody>
+                    </table>
+                </div>
+                <div id="unis_by_eq_table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th scope="col">Name</th>
+                                <th scope="col">Nickname</th>
+                            </tr>
+                        </thead>
+                        <tbody id="unis_by_eq">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div id="eq" style="display: none;">
+                <div class="row">
+                    <div class="col-25">
+
+                    </div>
+                    <div class="col-75">
+                        <h2> Warning: you may only search using one criterion. You cannot combine criteria. </h2>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-25">
+                        <label for="eq_wcs_dropbox">Search By Western Course</label>
+                    </div>
+                    <div class="col-75">
+                        <select id="eq_wcs_dropbox" name="eq_wcs_dropbox" onchange="eq_ocs_by_wcs()">
+                            <option value="">-</option>
+                        </select>
+                      </div>
+                </div>
+                <div class="row">
+                    <div class="col-25">
+                        <label for="eq_date">Approval Effective</label>
+                    </div>
+                    <div class="col-75">
+                        <input type="date" id="approval_date" onchange="eq_ocs_by_date()">
+                      </div>
+                </div>
+                <div id="eq_ocs_by_wcs_table" style="display: none;">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th scope="col">Western Course Code</th>
+                                <th scope="col">Western Course Name</th>
+                                <th scope="col">Western Course Weight</th>
+                                <th scope="col">Offering University Name</th>
+                                <th scope="col">Outside Course Code</th>
+                                <th scope="col">Outside Course Name</th>
+                                <th scope="col">Outside Course Weight</th>
+                                <th scope="col">Approval Effective Date</th>
+                            </tr>
+                        </thead>
+                        <tbody id="eq_ocs_by_wcs">
+                        </tbody>
+                    </table>
+                </div>
+                <div id="eq_ocs_by_date_table" style="display: none;">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th scope="col">Western Course Code</th>
+                                <th scope="col">Western Course Name</th>
+                                <th scope="col">Western Course Weight</th>
+                                <th scope="col">Offering University Name</th>
+                                <th scope="col">Outside Course Code</th>
+                                <th scope="col">Outside Course Name</th>
+                                <th scope="col">Outside Course Weight</th>
+                                <th scope="col">Approval Effective Date</th>
+                            </tr>
+                        </thead>
+                        <tbody id="eq_ocs_by_date">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            </form>
+          </div>
     </body>
 </html>
