@@ -292,3 +292,38 @@ function eq_ocs_by_wcs() {
   );
 
 }
+
+function eq_ocs_by_date() {
+  // hide courses by wcs and clear selection
+  $('#eq_ocs_by_wcs_table').hide();
+  $('#eq_wcs_dropbox').val('-');
+  // clear current table and show it
+  $('#eq_ocs_by_date_table').show();
+  $('#eq_ocs_by_date').empty();
+
+
+
+  $.ajax({
+    url: '../models/search.php',
+    type: 'get',
+    data: {
+      entity: 'eq',
+      by: 'date',
+      date: $('#approval_date').val()
+    },
+    success: function(response) {
+      let eq_ocs_by_date_select = $('#eq_ocs_by_date'),
+      str = response,
+      html = jQuery.parseHTML(str),
+      nodeNames = [];
+
+      eq_ocs_by_date_select.append(html);
+    },
+    error: function(xhr) {
+      // to do
+    }
+  }
+
+  );
+
+}

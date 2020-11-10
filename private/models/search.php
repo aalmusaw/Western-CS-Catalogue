@@ -162,6 +162,27 @@ else if ($entity==='eq') {
            }
            mysqli_free_result($result);
         }
+        else if($_GET['by'] == 'date') {
+            $query = "SELECT wcs_course.course_code as a, wcs_course.course_name as b, wcs_course.weight as c, university.name as d, 
+            ocs_course.course_code as e, ocs_course.course_name as f, ocs_course.weight as g, is_equivalent.equiv_approval_date as h 
+            FROM wcs_course INNER JOIN is_equivalent
+            ON wcs_course.course_code = is_equivalent.wcourse_code INNER JOIN ocs_course 
+            ON is_equivalent.ocourse_code = ocs_course.course_code INNER JOIN university
+            ON is_equivalent.offered_by = university.university_id
+            WHERE is_equivalent.equiv_approval_date <= '" . $_GET['date'] . "'";
+            $result = mysqli_query($connection, $query);
+            $cols = array('a', 'b', 'c', 'd', 'e', 'f', 'g', 'h');
+            while ($row = mysqli_fetch_assoc($result)) {
+                echo '<tr>';
+                for ($i = 0; $i < count($cols); $i++) {
+                    echo '<td>';
+                    echo $row[$cols[$i]];
+                    echo '</td>';
+                }
+                echo '</tr>';
+           }
+           mysqli_free_result($result);
+        }
     }
 }
 
