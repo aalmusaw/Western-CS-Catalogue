@@ -14,3 +14,4 @@ function loadUpCourses() {
 
     )
 }
+$(document).ready(loadUpCourses);
