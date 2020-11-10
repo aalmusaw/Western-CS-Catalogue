@@ -261,3 +261,34 @@ function resetWCSlist() {
   });
 
 }
+
+function eq_ocs_by_wcs() {
+  // hide courses by date
+  $('#eq_ocs_by_date_table').hide();
+  // clear current table and show it
+  $('#eq_ocs_by_wcs_table').show();
+  $('#eq_ocs_by_wcs').empty();
+  $.ajax({
+    url: '../models/search.php',
+    type: 'get',
+    data: {
+      entity: 'eq',
+      by: 'wcs',
+      wcs: $('#eq_wcs_dropbox').val()
+    },
+    success: function(response) {
+      let eq_ocs_by_wcs_select = $('#eq_ocs_by_wcs'),
+      str = response,
+      html = jQuery.parseHTML(str),
+      nodeNames = [];
+
+      eq_ocs_by_wcs_select.append(html);
+    },
+    error: function(xhr) {
+      // to do
+    }
+  }
+
+  );
+
+}

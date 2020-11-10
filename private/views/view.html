@@ -183,10 +183,54 @@
                         <label for="eq_wcs_dropbox">Search By Western Course</label>
                     </div>
                     <div class="col-75">
-                        <select id="eq_wcs_dropbox" name="eq_wcs_dropbox" onchange="resetWCSlist()">
+                        <select id="eq_wcs_dropbox" name="eq_wcs_dropbox" onchange="eq_ocs_by_wcs()">
                             <option value="">-</option>
                         </select>
                       </div>
+                </div>
+                <div class="row">
+                    <div class="col-25">
+                        <label for="eq_date">Approval Effective</label>
+                    </div>
+                    <div class="col-75">
+                        <input type="date">
+                      </div>
+                </div>
+                <div id="eq_ocs_by_wcs_table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th scope="col">Western Course Code</th>
+                                <th scope="col">Western Course Name</th>
+                                <th scope="col">Western Course Weight</th>
+                                <th scope="col">Offering University Name</th>
+                                <th scope="col">Outside Course Code</th>
+                                <th scope="col">Outside Course Name</th>
+                                <th scope="col">Outside Course Weight</th>
+                                <th scope="col">Approval Effective Date</th>
+                            </tr>
+                        </thead>
+                        <tbody id="eq_ocs_by_wcs">
+                        </tbody>
+                    </table>
+                </div>
+                <div id="eq_ocs_by_date_table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th scope="col">Western Course Code</th>
+                                <th scope="col">Western Course Name</th>
+                                <th scope="col">Western Course Weight</th>
+                                <th scope="col">Offering University Name</th>
+                                <th scope="col">Outside Course Code</th>
+                                <th scope="col">Outside Course Name</th>
+                                <th scope="col">Outside Course Weight</th>
+                                <th scope="col">Approval Effective Date</th>
+                            </tr>
+                        </thead>
+                        <tbody id="eq_ocs_by_date">
+                        </tbody>
+                    </table>
                 </div>
             </div>
             </form>
