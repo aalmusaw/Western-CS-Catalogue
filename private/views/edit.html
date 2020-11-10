@@ -23,5 +23,55 @@
                 </ul>
             </nav>
         </header>
+        <div class="container">
+            <div class="row">
+                <div class="col-25">
+                    <label for="wcs_course_list">Select Course to Edit</label>
+                </div>
+                <div class="col-75">
+                    <select id="wcs_course_list">
+                        <option value="-">-</option>
+                    </select>
+                </div>
+            </div>
+            <form style="display: block;">
+                <div class="row">
+                    <div class="col-25">
+                        <label for="course_name">New Course Name</label>
+                    </div>
+                    <div class="col-75">
+                        <input type="text" id="course_name" name="course_name">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-25">
+                        <label for="course_weight">New Course Weight</label>
+                    </div>
+                    <div class="col-75">
+                        <div class="h_radio" id="course_weight">
+                            <div>
+                                <label for="full_weight">1.0</label>
+                                <input type="radio" id="full_weight" name="course_weight" value="1.0">
+                            </div>
+                            <div>
+                                <label for="half_weight">0.5</label>
+                                <input type="radio" id="half_weight" name="course_weight" value="0.5">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-25">
+                        <label for="suffix">New Course Suffix</label>
+                    </div>
+                    <div class="col-75">
+                        <input type="text" id="suffix" name="suffix">
+                    </div>
+                </div>
+                <div class="row">
+                    <input type="submit"></input>
+                </div>
+            </form>
+        </div>
     </body>
 </html>
