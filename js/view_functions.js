@@ -209,7 +209,9 @@ function fetchUniList() {
 }
 
 function listUnisByEq() {
-  // hide other uni divs
+  // hide other uni divs and clear selection
+  $('#uni_name').val('-');
+  $('#uni_province_abv').val('-');
   $('#uni_prov_table').hide();
   clearUniInfo();
   // clear old data
