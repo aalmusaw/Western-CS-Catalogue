@@ -148,7 +148,7 @@ else if ($entity==='eq') {
             ON is_equivalent.ocourse_code = ocs_course.course_code INNER JOIN university
             ON is_equivalent.offered_by = university.university_id";
             $result = mysqli_query($connection, $query);
-            $cols = array('a', 'b', 'c', 'd');
+            $cols = array('a', 'b', 'c', 'd', 'e', 'f', 'g');
             while ($row = mysqli_fetch_assoc($result)) {
                 echo '<tr>';
                 for ($i = 0; $i < count($cols); $i++) {
