@@ -3,43 +3,19 @@
 include 'connectdb.php';
 $entity = $_GET['entity'];
 if ($entity==='wcs_course') {
-    if(isset($_GET['edit'])) {
-        $query = "SELECT * FROM wcs_course ORDER BY " . $_GET['order_by'] . " " . $_GET['order_dir'];
-        $result = mysqli_query($connection,$query);
-        $cols = array('course_code', 'course_name', 'weight', 'suffix');
-        while ($row = mysqli_fetch_assoc($result)) {
-            echo '<tr>';
-            for ($i = 0; $i < count($cols); $i++) {
-                if ($i === 0) {
-                    echo '<td>';
-                    echo $row[$cols[$i]];
-                    echo '</td>';
-                }
-                else {
-                    echo '<td><div contenteditable="true">';
-                    echo $row[$cols[$i]];
-                    echo '</div></td>';
-                }
-            }
-            echo '</tr>';
-       }
-       mysqli_free_result($result);
-    }
-    else {
-        $query = "SELECT * FROM wcs_course ORDER BY " . $_GET['order_by'] . " " . $_GET['order_dir'];
-        $result = mysqli_query($connection,$query);
-        $cols = array('course_code', 'course_name', 'weight', 'suffix');
-        while ($row = mysqli_fetch_assoc($result)) {
-            echo '<tr>';
-            for ($i = 0; $i < count($cols); $i++) {
-                echo '<td>';
-                echo $row[$cols[$i]];
-                echo '</td>';
-            }
-            echo '</tr>';
-       }
-       mysqli_free_result($result);
-    }
+    $query = "SELECT * FROM wcs_course ORDER BY " . $_GET['order_by'] . " " . $_GET['order_dir'];
+    $result = mysqli_query($connection,$query);
+    $cols = array('course_code', 'course_name', 'weight', 'suffix');
+    while ($row = mysqli_fetch_assoc($result)) {
+        echo '<tr>';
+        for ($i = 0; $i < count($cols); $i++) {
+            echo '<td>';
+            echo $row[$cols[$i]];
+            echo '</td>';
+        }
+        echo '</tr>';
+   }
+   mysqli_free_result($result);
 
 }
 else if ($entity==='university') {
@@ -207,15 +183,6 @@ else if ($entity==='eq') {
            }
            mysqli_free_result($result);
         }
-    }
-}
-if(isset($_POST['edit'])) {
-    if ($_GET['table'] === 'western_cs') {
-        $sql = 'UPDATE wcs_course SET course_name="' . pg_escape_string($_POST['course_name']) .
-                '", weight=' . pg_escape_string($_POST['weight']) . ', suffix="' . 
-                pg_escape_string($_POST['suffix']) . '" WHERE course_code = "' . 
-                pg_escape_string($_POST['course_code']) . '"';
-        echo mysqli_query($link, $sql);
     }
 }
 
