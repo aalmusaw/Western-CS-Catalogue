@@ -3,19 +3,43 @@
 include 'connectdb.php';
 $entity = $_GET['entity'];
 if ($entity==='wcs_course') {
-    $query = "SELECT * FROM wcs_course ORDER BY " . $_GET['order_by'] . " " . $_GET['order_dir'];
-    $result = mysqli_query($connection,$query);
-    $cols = array('course_code', 'course_name', 'weight', 'suffix');
-    while ($row = mysqli_fetch_assoc($result)) {
-        echo '<tr>';
-        for ($i = 0; $i < count($cols); $i++) {
-            echo '<td>';
-            echo $row[$cols[$i]];
-            echo '</td>';
-        }
-        echo '</tr>';
-   }
-   mysqli_free_result($result);
+    if(isset($_GET['edit'])) {
+        $query = "SELECT * FROM wcs_course ORDER BY " . $_GET['order_by'] . " " . $_GET['order_dir'];
+        $result = mysqli_query($connection,$query);
+        $cols = array('course_code', 'course_name', 'weight', 'suffix');
+        while ($row = mysqli_fetch_assoc($result)) {
+            echo '<tr>';
+            for ($i = 0; $i < count($cols); $i++) {
+                if ($col[$i] === 'course_code') {
+                    echo '<td>';
+                    echo $row[$cols[$i]];
+                    echo '</td>';
+                }
+                else {
+                    echo '<td contenteditable>';
+                    echo $row[$cols[$i]];
+                    echo '</td>';
+                }
+            }
+            echo '</tr>';
+       }
+       mysqli_free_result($result);
+    }
+    else {
+        $query = "SELECT * FROM wcs_course ORDER BY " . $_GET['order_by'] . " " . $_GET['order_dir'];
+        $result = mysqli_query($connection,$query);
+        $cols = array('course_code', 'course_name', 'weight', 'suffix');
+        while ($row = mysqli_fetch_assoc($result)) {
+            echo '<tr>';
+            for ($i = 0; $i < count($cols); $i++) {
+                echo '<td>';
+                echo $row[$cols[$i]];
+                echo '</td>';
+            }
+            echo '</tr>';
+       }
+       mysqli_free_result($result);
+    }
 
 }
 else if ($entity==='university') {
