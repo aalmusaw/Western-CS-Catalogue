@@ -40,7 +40,7 @@ function onSelectEq() {
 function resetWesternCSTable() {
     $( '#wcs_table' ).empty()
     $.ajax({
-        url: '../models/search.php',
+        url: '../controllers/search.php',
         type: 'get',
         data: { 
           entity: 'wcs_course',
@@ -69,7 +69,7 @@ function resetUniNames() {
 
     // do ajax request to get uni names
     $.ajax({
-        url: '../models/search.php',
+        url: '../controllers/search.php',
         type: 'get',
         data: { 
           entity: 'university',
@@ -96,7 +96,7 @@ function resetUniProv() {
 
       // do ajax request to get uni names
       $.ajax({
-        url: '../models/search.php',
+        url: '../controllers/search.php',
         type: 'get',
         data: { 
           entity: 'university',
@@ -129,7 +129,7 @@ function fetchUniInfo() {
 
   
   $.ajax({
-    url: '../models/search.php',
+    url: '../controllers/search.php',
     type: 'get',
     data: { 
       entity: 'university',
@@ -152,7 +152,7 @@ function fetchUniInfo() {
 
 function fetchCourseInfo() {
   $.ajax({
-    url: '../models/search.php',
+    url: '../controllers/search.php',
     type: 'get',
     data: { 
       entity: 'ocs_course',
@@ -188,7 +188,7 @@ function fetchUniList() {
   $('#uni_prov_table').show();
   $( '#uni_prov_tbody' ).empty();
   $.ajax({
-    url: '../models/search.php',
+    url: '../controllers/search.php',
     type: 'get',
     data: { 
       entity: 'university',
@@ -219,7 +219,7 @@ function listUnisByEq() {
   // unhide the table
   $('#unis_by_eq_table').show();
   $.ajax({
-    url: '../models/search.php',
+    url: '../controllers/search.php',
     type: 'get',
     data: { 
       entity: 'university',
@@ -243,7 +243,7 @@ function resetWCSlist() {
   $('#eq_wcs_dropbox').empty();
   $('#eq_wcs_dropbox').append('<option value="">-</option>');
   $.ajax({
-    url: '../models/search.php',
+    url: '../controllers/search.php',
     type: 'get',
     data: { 
       entity: 'eq',
@@ -271,7 +271,7 @@ function eq_ocs_by_wcs() {
   $('#eq_ocs_by_wcs_table').show();
   $('#eq_ocs_by_wcs').empty();
   $.ajax({
-    url: '../models/search.php',
+    url: '../controllers/search.php',
     type: 'get',
     data: {
       entity: 'eq',
@@ -306,7 +306,7 @@ function eq_ocs_by_date() {
 
 
   $.ajax({
-    url: '../models/search.php',
+    url: '../controllers/search.php',
     type: 'get',
     data: {
       entity: 'eq',
