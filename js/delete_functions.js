@@ -20,7 +20,6 @@ function getWesternCourseList() {
 
 
 function has_equivalent(course_code) {
-    // load up the course options
     $.get("../controllers/delete.php",
         {
             entity:"is_equivalent",
@@ -37,7 +36,7 @@ function has_equivalent(course_code) {
 
 
 function confirmDelete() {
-    let course = $('wcs_course').val();
+    let course = $('#wcs_course').val();
     if (course) {
         alert('Please select a course to delete.')
     }
