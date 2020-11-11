@@ -52,6 +52,7 @@ if (isset($_POST['form'])) {
         
         $query = "INSERT IGNORE INTO wcs_course VALUES (" . $code . ", "
         . $name . ", " . $weight . ", " . $suffix . ")" ;
+        echo $query;
         $result = mysqli_query($connection,$query);
         if ($result) {
             echo "Changes have been successively saved.";
