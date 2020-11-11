@@ -5,7 +5,7 @@ $(document).ready(function() {
     // call some listeners
     $('#wcs_course_list').change(toggleForm);
     $('#submitForm').click(submitData);
-})
+});
 
 function toggleForm() {
     let ccode = $('#wcs_course_list').val();

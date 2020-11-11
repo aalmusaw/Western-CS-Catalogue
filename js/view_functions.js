@@ -1,13 +1,37 @@
-function onSelectEntity(entity) {
-    if (entity==='wcs_course') {
-        onSelectWCSCourse();
-    }
-    else if (entity==='university') {
-        onSelectUniversity();
-    }
-    else if (entity==='is_equivalent') {
-        onSelectEq();
-    }
+$(document).ready(function() {
+  // execute functions that load data
+  resetWesternCSTable();
+
+  // hide some elements
+  $('#university').hide();
+  $('#uni_detailed_tables').hide();
+  $('#uni_prov_table').hide();
+  $('#eq').hide();
+  $('#eq_ocs_by_wcs_table').hide();
+  $('#eq_ocs_by_date_table').hide();
+
+  // set up listeners
+  $('#entity').change(onSelectEntity);
+  $('#wcs_ordered_by').change(resetWesternCSTable);
+  $('#wcs_order_dir').change(resetWesternCSTable);
+  $('#uni_name').change(fetchUniInfo);
+  $('#uni_province_abv').change(fetchUniList);
+  $('#uni_offers_eq').change(listUnisByEq);
+  $('#eq_wcs_dropbox').change(eq_ocs_by_wcs);
+  $('#approval_date').change(eq_ocs_by_date);
+});
+
+function onSelectEntity() {
+let entity = $('#entity').val();
+  if (entity==='wcs_course') {
+      onSelectWCSCourse();
+  }
+  else if (entity==='university') {
+      onSelectUniversity();
+  }
+  else if (entity==='is_equivalent') {
+      onSelectEq();
+  }
 }
 
 function onSelectWCSCourse() {

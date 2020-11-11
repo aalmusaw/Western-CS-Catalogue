@@ -29,7 +29,7 @@
                 <label for="entity">Search For</label>
               </div>
               <div class="col-75">
-                <select id="entity" name="entity" onchange="onSelectEntity(this.value)">
+                <select id="entity" name="entity">
                     <option value="wcs_course">Western Courses</option>
                     <option value="university">Universities</option>
                     <option value="is_equivalent">Equivalent Courses</option>
@@ -42,7 +42,7 @@
                         <label for="wcs_ordered_by">Order By</label>
                     </div>
                     <div class="col-75">
-                        <select id="wcs_ordered_by" name="wcs_ordered_by" onchange="resetWesternCSTable()">
+                        <select id="wcs_ordered_by" name="wcs_ordered_by">
                             <option value="course_code">Course Number</option>
                             <option value="course_name">Course Name</option>
                         </select>
@@ -53,7 +53,7 @@
                         <label for="wcs_order_dir">Ordering Direction</label>
                     </div>
                     <div class="col-75">
-                        <select id="wcs_order_dir" name="wcs_order_dir" onchange="resetWesternCSTable()">
+                        <select id="wcs_order_dir" name="wcs_order_dir">
                             <option value="asc">Ascending</option>
                             <option value="desc">Descending</option>
                         </select>
@@ -77,9 +77,8 @@
                         </table>
                     </div>
                 </div>
-                <script>resetWesternCSTable();</script>
             </div>
-            <div id="university" style="display: none;">
+            <div id="university">
                 <div class="row">
                     <div class="col-25">
 
@@ -93,7 +92,7 @@
                         <label for="uni_name">Search By University</label>
                     </div>
                     <div class="col-75">
-                        <select id="uni_name" name="uni_name" onchange="fetchUniInfo()">
+                        <select id="uni_name" name="uni_name">
                             <option value="">-</option>
                         </select>
                       </div>
@@ -103,7 +102,7 @@
                         <label for="uni_province_abv">Search By Province</label>
                     </div>
                     <div class="col-75">
-                        <select id="uni_province_abv" name="uni_province_abv" onchange="fetchUniList()">
+                        <select id="uni_province_abv" name="uni_province_abv">
                             <option value="">-</option>
                         </select>
                       </div>
@@ -114,11 +113,11 @@
                             <label for="unis_by_eq_checks">Offering Equivalent Courses</label>
                         </div>
                         <div class="col-75">
-                            <input type="checkbox" id="uni_offers_eq" name="uni_offers_eq" value="true" onchange="listUnisByEq()">
+                            <input type="checkbox" id="uni_offers_eq" name="uni_offers_eq" value="true">
                         </div>
                     </div>
                 </div>
-                <div id="uni_detailed_tables" style="display: none;">
+                <div id="uni_detailed_tables">
                     <div class="row">
                         <div class="col-25">
                         </div>
@@ -159,7 +158,7 @@
                     </div>
                 </div>
                 <script>clearUniInfo();</script>
-                <div id="uni_prov_table" style="display: none;">
+                <div id="uni_prov_table">
                     <div class="row">
                         <div class="col-25"></div>
                         <div class="col-75">
@@ -195,7 +194,7 @@
                     </div>
                 </div>
             </div>
-            <div id="eq" style="display: none;">
+            <div id="eq">
                 <div class="row">
                     <div class="col-25">
 
@@ -209,7 +208,7 @@
                         <label for="eq_wcs_dropbox">Search By Western Course</label>
                     </div>
                     <div class="col-75">
-                        <select id="eq_wcs_dropbox" name="eq_wcs_dropbox" onchange="eq_ocs_by_wcs()">
+                        <select id="eq_wcs_dropbox" name="eq_wcs_dropbox">
                             <option value="">-</option>
                         </select>
                       </div>
@@ -219,10 +218,10 @@
                         <label for="eq_date">Approval Effective</label>
                     </div>
                     <div class="col-75">
-                        <input type="date" id="approval_date" onchange="eq_ocs_by_date()">
+                        <input type="date" id="approval_date">
                       </div>
                 </div>
-                <div id="eq_ocs_by_wcs_table" style="display: none;">
+                <div id="eq_ocs_by_wcs_table">
                     <div class="row">
                         <div class="col-25">
 
@@ -247,7 +246,7 @@
                         </div>
                     </div>
                 </div>
-                <div id="eq_ocs_by_date_table" style="display: none;">
+                <div id="eq_ocs_by_date_table">
                     <div class="row">
                         <div class="col-25">
                         </div>
