@@ -99,7 +99,7 @@ function submitEF() {
         },
         function(response) {
             confirm(response);
-            window.location.reload();
+            //window.location.reload();
         }
         );
     }
