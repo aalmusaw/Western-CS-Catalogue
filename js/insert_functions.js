@@ -85,7 +85,8 @@ function submitWF() {
 }
 
 function submitEF() {
-    if ($('#EFuniversity').val() == "") {
+    console.log($('#EFuniversity').val());
+    if ($('#EFuniversity').val()) {
        confirm("Please select a university.");
     }
     else {
@@ -99,7 +100,7 @@ function submitEF() {
         },
         function(response) {
             confirm(response);
-            window.location.reload();
+            //window.location.reload();
         }
         );
     }
