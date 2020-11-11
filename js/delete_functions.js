@@ -27,7 +27,6 @@ function has_equivalent(course_code) {
 
         },
         function(response) {
-            console.log('has_equivalent get response is: ' + response);
             if (/.*true.*/.test(response)) toDelete = true;
             else if (/.*false.*/.test(response)) toDelete = false;
             }
@@ -44,7 +43,6 @@ function confirmDelete() {
     else {
         has_equivalent(course);
         window.setTimeout(function() {
-            console.log('has_equivalent() returned: ' + toDelete);
             if (toDelete) {
                 let user_conf = confirm('The course you are about to delete is associated \
                 with an outside course. Do you still wish to proceed?');
