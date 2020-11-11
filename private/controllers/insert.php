@@ -82,7 +82,7 @@ if (isset($_POST['form'])) {
             }
         }
         else {
-            $query = 'INSERT INTO is_equivalent VALUES (' . $_GET['wcode'] ', ' . $_GET['ocode'] . ', '
+            $query = 'INSERT INTO is_equivalent VALUES (' . $_GET['wcode'] . ', ' . $_GET['ocode'] . ', '
                 . $_GET['uni'] . ', ' . $_GET['date'] . ')';
             $result = mysqli_query($connection,$query);
             if (mysqli_affected_rows($connection) == 0) {
