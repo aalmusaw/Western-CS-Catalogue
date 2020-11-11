@@ -41,7 +41,8 @@ function confirmDelete() {
         alert('Please select a course to delete.')
     }
     else {
-        if (has_equivalent(course)) {
+        let to_warn = has_equivalent(course);
+        if (to_warn) {
             let to_delete = confirm('The course you are about to delete is associated \
             with an outside course. Do you still wish to proceed?');
             if (to_delete) {
