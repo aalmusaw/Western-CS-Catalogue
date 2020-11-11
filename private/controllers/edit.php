@@ -9,7 +9,7 @@ if ($entity==='wcs_course') {
     $cols = array('course_code', 'course_name', 'weight', 'suffix');
     $data = array();
     while ($row = mysqli_fetch_assoc($result)) {
-        array_push($data, json_encode($row));
+        array_push($data, $row);
    }
    echo json_encode($data);
    mysqli_free_result($result);
