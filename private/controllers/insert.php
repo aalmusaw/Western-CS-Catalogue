@@ -49,7 +49,9 @@ if (isset($_POST['form'])) {
         $name = mysqli_real_escape_string($_POST['name']);
         $weight = mysqli_real_escape_string($_POST['weight']);
         $suffix = mysqli_real_escape_string($_POST['suffix']);
-        $query = "INSERT IGNORE INTO wcs_course VALUES (" . $code ", " . $name . ", " . $weight . ", " . $suffix . ")";
+        
+        $query = "INSERT IGNORE INTO wcs_course VALUES (" . $code . ", "
+        . $name . ", " . $weight . ", " . $suffix . ")" ;
         $result = mysqli_query($connection,$query);
         if ($result) {
             echo "Changes have been successively saved.";
