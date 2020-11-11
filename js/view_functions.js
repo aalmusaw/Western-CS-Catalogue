@@ -1,3 +1,9 @@
+/**
+ *  This module contains all functions related to the
+ *  view.html file.
+ *  @module view_functions 
+ */
+
 $(document).ready(function() {
   // execute functions that load data
   resetWesternCSTable();
@@ -21,6 +27,14 @@ $(document).ready(function() {
   $('#approval_date').change(eq_ocs_by_date);
 });
 
+/**
+ * This performs an action depending on
+ * the user's current choice of entity.
+ * For example, if the user selects to
+ * search for a University, then the
+ * irrelevant tables are hidden and more
+ * search criteria are provided.
+ */
 function onSelectEntity() {
 let entity = $('#entity').val();
   if (entity==='wcs_course') {
@@ -34,55 +48,86 @@ let entity = $('#entity').val();
   }
 }
 
+/**
+ * This functions hides irrelevant divs
+ * and shows relevant (Western Courses) div.
+ */
 function onSelectWCSCourse() {
-    // hide divs for other searches
     $('#wcs_course').show();
     $('#university').hide();
     $('#eq').hide();
 }
 
+/**
+ * This functions hides irrelevant divs
+ * and shows relevant (University) div.
+ * It also loads options for different
+ * search criteria. 
+ */
 function onSelectUniversity() {
-    // hide divs for other searches
+    // hide dive irrelevant divs
     $('#university').show();
     $('#wcs_course').hide();
     $('#eq').hide();
 
-    // load uni choices
+    // load more search options
     resetUniNames();
     resetUniProv();
     listUnisByEq();
 }
 
+/**
+ * This functions hides irrelevant divs
+ * and shows relevant (Equivalent Courses) div.
+ * It also loads Western Courses options to
+ * search for their equivalent counterparts.
+ */
 function onSelectEq() {
-    // hide divs for other searches
     $('#eq').show();
     $('#wcs_course').hide()
     $('#university').hide();
     resetWCSlist();
 }
 
+/**
+ * This function makes a GET request to the backend
+ * server and receives table rows that contain data
+ * on Western Courses. The function appends the html
+ * to the table with `id=wcs_table`.
+ */
 function resetWesternCSTable() {
     $( '#wcs_table' ).empty()
-    $.ajax({
-        url: '../controllers/search.php',
-        type: 'get',
-        data: { 
-          entity: 'wcs_course',
-          order_by: $('#wcs_ordered_by').val(),
-          order_dir: $('#wcs_order_dir').val()
-        },
-        success: function(response) {
-            let $wcs_table_body = $( '#wcs_table' ), 
-            str = response, 
-            html = jQuery.parseHTML( str ), 
-            nodeNames = []; 
+    $.get('../controllers/search.php',
+    {
+      entity: 'wcs_course',
+      order_by: $('#wcs_ordered_by').val(),
+      order_dir: $('#wcs_order_dir').val()
+    },
+    function(response) {
+      $('#wcs_table').append(response);
+    }
+    )
+
+    // $.ajax({
+    //     url: '../controllers/search.php',
+    //     type: 'get',
+    //     data: { 
+    //       entity: 'wcs_course',
+    //       order_by: $('#wcs_ordered_by').val(),
+    //       order_dir: $('#wcs_order_dir').val()
+    //     },
+    //     success: function(response) {
+    //         let $wcs_table_body = $( '#wcs_table' ), 
+    //         str = response, 
+    //         html = jQuery.parseHTML( str ), 
+    //         nodeNames = []; 
              
-          $wcs_table_body.append( html );
-        },
-        error: function(xhr) {
-          //Do Something to handle error
-        }
-      });
+    //       $wcs_table_body.append( html );
+    //     },
+    //     error: function(xhr) {
+    //       //Do Something to handle error
+    //     }
+    //   });
 
 }
 
