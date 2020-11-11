@@ -70,7 +70,7 @@ function getOutsideCourseList(university_id) {
 
 function submitWF() {
     let ccode = parseInt($('#WFcode').val());
-    if (isNaN(ccode) || Math.abs(ccode-parseInt($('#WFcode').val())) > 0) {
+    if (isNaN(ccode) || Math.abs(ccode-parseFloat($('#WFcode').val())) > 0) {
         alert('Course Code must be integer only.')
     }
     else {
