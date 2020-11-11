@@ -50,8 +50,8 @@ if (isset($_POST['form'])) {
         $weight = mysqli_real_escape_string($connection, $_POST['weight']);
         $suffix = mysqli_real_escape_string($connection, $_POST['suffix']);
         
-        $query = "INSERT IGNORE INTO wcs_course VALUES (" . $code . ", "
-        . $name . ", " . $weight . ", " . $suffix . ")" ;
+        $query = 'INSERT IGNORE INTO wcs_course VALUES ("' . $code . '", "'
+        . $name . '", "' . $weight . '", "' . $suffix . '")' ;
         echo $query;
         $result = mysqli_query($connection,$query);
         if ($result) {
