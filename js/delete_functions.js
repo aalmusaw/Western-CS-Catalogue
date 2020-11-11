@@ -20,6 +20,7 @@ function getWesternCourseList() {
 
 
 function has_equivalent(course_code) {
+    let result;
     $.get("../controllers/delete.php",
         {
             entity:"is_equivalent",
@@ -27,10 +28,11 @@ function has_equivalent(course_code) {
 
         },
         function(response) {
-            if (response === "true") return true;
-            else if (response === "false") return false;
+            if (response === "true") result = true;
+            else if (response === "false") result = false;
             }
     );
+    return result;
     
 }
 
