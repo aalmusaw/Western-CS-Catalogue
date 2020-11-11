@@ -12,8 +12,8 @@ if (isset($_GET['entity'])) {
         }
         if($result !== false) {
             mysqli_free_result($result);
-            }
-        }
+         }
+
     }
     else if ($_GET['entity']==='university') {
         $query = "SELECT university_id, name FROM university ORDER BY name";
