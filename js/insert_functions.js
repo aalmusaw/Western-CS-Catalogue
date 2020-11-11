@@ -1,9 +1,9 @@
 
 $(document).ready(function() {
-    // call some listeners
     toggleForms();
+    // call some listeners
     $('#entity').change(toggleForms);
-    $('#EFuniversity').change(getOutsideCourseList($('#EFuniversity').val()))
+    $('#EFuniversity').change(getOutsideCourseList($('#EFuniversity').val()));
     $('#WFsubmit').click(submitWF);
     $('#EFsubmit').click(submitEF);
 })
