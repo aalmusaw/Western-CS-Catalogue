@@ -9,14 +9,11 @@ $(document).ready(function() {
 })
 
 function toggleForms() {
-    console.log('toggleForms called!')
     if ($('#entity').val() === 'wcs_course') {
-        console.log('Should hide EQ form')
         $('#westernForm').show();
         $('#eqForm').hide();
     }
     else if ($('#entity').val() === 'eq') {
-        console.log('Should hide Western form')
         $('#westernForm').hide();
         $('#eqForm').show();
         getWesternCourseList();
