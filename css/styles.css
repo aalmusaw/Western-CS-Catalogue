@@ -118,6 +118,7 @@ p a {
   .container {
     border-radius: 5px;
     padding: 20px;
+    overflow-x:auto
   }
   
   .col-25 {
