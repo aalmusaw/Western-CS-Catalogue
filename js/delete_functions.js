@@ -28,6 +28,7 @@ function has_equivalent(course_code) {
 
         },
         function(response) {
+            console.log('has_equivalent get response is: ' + response);
             if (response === "true") result = true;
             else if (response === "false") result = false;
             }
