@@ -11,7 +11,7 @@ if ($entity==='wcs_course') {
     while ($row = mysqli_fetch_assoc($result)) {
     $data = $data . json_encode($row) . ", ";
    }
-   $data = substr($data, 0, -2) . "]"
+   $data = substr($data, 0, -2) . "]";
    echo $data;
    mysqli_free_result($result);
 
