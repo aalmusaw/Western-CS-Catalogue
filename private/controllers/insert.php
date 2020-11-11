@@ -24,7 +24,7 @@ if (isset($_GET['entity'])) {
         }
         if($result !== false) {
             mysqli_free_result($result);
-            }
+            
         }
     }
     else if ($_GET['entity']==='ocs_course') {
@@ -37,7 +37,7 @@ if (isset($_GET['entity'])) {
         }
         if($result !== false) {
             mysqli_free_result($result);
-            }
+            
         }
     }
 }
