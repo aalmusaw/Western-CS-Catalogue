@@ -29,8 +29,8 @@ function has_equivalent(course_code) {
         },
         function(response) {
             console.log('has_equivalent get response is: ' + response);
-            if (response === "true") result = true;
-            else if (response === "false") result = false;
+            if (/^*true*$/.test(response)) result = true;
+            else if (/^*false*$/.test(response)) result = false;
             }
     );
     toDelete = result;
@@ -61,7 +61,7 @@ function confirmDelete() {
                     submitDelete();
                 }
             }
-        }, 3500)
+        }, 1000)
     }
 
 }
