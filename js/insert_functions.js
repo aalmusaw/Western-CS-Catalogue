@@ -2,7 +2,7 @@
 $(document).ready(function() {
     // call some listeners
     toggleForms();
-    $('#entity').change(toggleForm);
+    $('#entity').change(toggleForms);
     $('#EFuniversity').change(getOutsideCourseList($('#EFuniversity').val()))
     $('#WFsubmit').click(submitWF);
     $('#EFsubmit').click(submitEF);
