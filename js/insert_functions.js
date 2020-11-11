@@ -69,18 +69,24 @@ function getOutsideCourseList(university_id) {
 
 
 function submitWF() {
-    $.post("../controllers/insert.php",
-    {
-        form: 'WF',
-        code: $('#WFcode').val(),
-        name: $('#WFname').val(),
-        weight: $('#WFweight').val(),
-        suffix: $('#WFsuffix').val()
-    },
-    function(response) {
-        confirm(response);
+    let ccode = parseInt($('#WFcode').val());
+    if (isNaN(ccode)) {
+        alert('Course Code must be integer only.')
     }
-    )
+    else {
+        $.post("../controllers/insert.php",
+        {
+            form: 'WF',
+            code: ccode,
+            name: $('#WFname').val(),
+            weight: $('#WFweight').val(),
+            suffix: $('#WFsuffix').val()
+        },
+        function(response) {
+            confirm(response);
+        }
+        )
+    }
 }
 
 function submitEF() {
