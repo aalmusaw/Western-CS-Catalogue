@@ -53,12 +53,12 @@ if (isset($_POST['form'])) {
         $query = 'INSERT IGNORE INTO wcs_course VALUES ("cs' . $code . '", "'
         . $name . '", "' . $weight . '", "' . $suffix . '")' ;
         $result = mysqli_query($connection,$query);
-        if ($result) {
-            echo "Changes have been successively saved.";
-        }
         if (mysqli_affected_rows($connection) == 0) {
             echo "Changes have not been saved. You may have entered a 
             duplicate course code or there is an error on our end.";
+        }
+        else {
+            echo "Changes have been successfully saved.";
         }
     }
     else if($_POST['form']==='EF') {
@@ -74,7 +74,7 @@ if (isset($_POST['form'])) {
             $_POST['ocode'] . '" AND offered_by=' . $_POST['uni'] . ' AND wcourse_code="' . 
             $_POST['wcode'] . '"';
             $result = mysqli_query($connection,$query);
-            if ($result) {
+            if (mysqli_affected_rows($connection) > 0) {
                 echo "This course equivalency already exists. The approval date has been updated.";
             }
             else {
@@ -88,11 +88,8 @@ if (isset($_POST['form'])) {
             if (mysqli_affected_rows($connection) == 0) {
                 echo "Changes could not be saved. Please contact the website developer.";
             }
-            if($result){
-                echo "Changes have been saved successfully.";
-            }
             else {
-                echo "Fatal Error!";
+                echo "Changes have been successfully saved.";
             }
                 
             
