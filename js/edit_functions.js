@@ -1,15 +1,12 @@
-courses = [];
+let courses = [];
 function loadUpCourses() {
     $.getJSON("../controllers/edit.php",
      {entity:"wcs_course"},
      function(response) {
-         for (let attr in response[0]) {
-             console.log(attr);
-         }
+         courses = response;
          for(let i = 0; i < response.length; i++) {
-             courses.push[response[i]];
-             let html = "<option value=" + courses[i].course_code + ">" + courses[i].course_code + ": "
-                + courses[i].course_name + "</option>";
+             let html = "<option value=" + response[i].course_code + ">" + response[i].course_code + ": "
+                + response[i].course_name + "</option>";
              $('wcs_course_list').append(html);
          }
      }
