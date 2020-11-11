@@ -34,7 +34,7 @@ if (isset($_GET['entity'])) {
 if (isset($_POST['wcs_course'])) {
     $code = $_POST['wcs_course'];
     $query = 'DELETE FROM wcs_course WHERE course_code="' . $code . '"';
-    $result = mysqli_query($connection, $result);
+    $result = mysqli_query($connection, $query);
     if (mysqli_affected_rows($connection) === 0) {
         echo "An error has occured. Changes could not be saved.";
     }
