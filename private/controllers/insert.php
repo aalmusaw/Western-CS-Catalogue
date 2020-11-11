@@ -62,8 +62,8 @@ if (isset($_POST['form'])) {
         }
     }
     else if($_POST['form']==='EF') {
-        $query = 'SELECT COUNT(*) AS count FROM is_equivalent WHERE ocourse_code="' . $_GET['ocode']
-            . '" AND offered_by="' . $_GET['uni'] . '" AND wcourse_code="' . $_GET['wcode'] . '"';
+        $query = 'SELECT COUNT(*) AS count FROM is_equivalent WHERE ocourse_code="' . $_POST['ocode']
+            . '" AND offered_by="' . $_POST['uni'] . '" AND wcourse_code="' . $_POST['wcode'] . '"';
         $result = mysqli_query($connection,$query);
         $row = mysqli_fetch_assoc($result);
         if($result !== false) {
@@ -71,8 +71,8 @@ if (isset($_POST['form'])) {
             }
         if ($row['count'] == 1) {
             $query = 'UPDATE is_equivalent SET equiv_approval_date=CURDATE() WHERE ocourse_code="' . 
-            $_GET['ocode'] . '" AND offered_by=' . $_GET['uni'] . ' AND wcourse_code="' . 
-            $_GET['wcode'] . '"';
+            $_POST['ocode'] . '" AND offered_by=' . $_POST['uni'] . ' AND wcourse_code="' . 
+            $_POST['wcode'] . '"';
             $result = mysqli_query($connection,$query);
             if ($result) {
                 echo "This course equivalency already exists. The approval date has been updated.";
@@ -82,8 +82,8 @@ if (isset($_POST['form'])) {
             }
         }
         else {
-            $query = 'INSERT INTO is_equivalent VALUES (' . $_GET['wcode'] . ', ' . $_GET['ocode'] . ', '
-                . $_GET['uni'] . ', ' . $_GET['date'] . ')';
+            $query = 'INSERT INTO is_equivalent VALUES (' . $_POST['wcode'] . ', ' . $_POST['ocode'] . ', '
+                . $_POST['uni'] . ', ' . $_POST['date'] . ')';
             $result = mysqli_query($connection,$query);
             if (mysqli_affected_rows($connection) == 0) {
                 echo "Changes could not be saved. Please contact the website developer.";
