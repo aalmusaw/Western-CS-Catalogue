@@ -86,7 +86,7 @@ function submitWF() {
 
 function submitEF() {
     if ($('#EFuniversity').val() == "") {
-        alert("Please select a university.");
+       confirm("Please select a university.");
     }
     else {
         $.post("../controllers/insert.php",
