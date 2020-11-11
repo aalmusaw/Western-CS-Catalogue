@@ -8,7 +8,7 @@ $(document).ready(function() {
 
 function getWesternCourseList() {
     // load up the course options
-    $.get("../controllers/insert.php",
+    $.get("../controllers/delete.php",
         {
             entity:"wcs_course"
         },
@@ -21,7 +21,7 @@ function getWesternCourseList() {
 
 function has_equivalent(course_code) {
     // load up the course options
-    $.get("../controllers/insert.php",
+    $.get("../controllers/delete.php",
         {
             entity:"is_equivalent",
             code: course_code
