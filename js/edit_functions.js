@@ -73,5 +73,6 @@ function submitData() {
             alert(response);
         }
         )
+        location.reload();
     }
 }
