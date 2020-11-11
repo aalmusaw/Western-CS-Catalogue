@@ -43,8 +43,8 @@ function getUniversityList() {
             $('#EFuniversity').append(response);
             }
     );
-    console.log("First Child of Uni: " + $('#EFuniversity:first-child').val());
-    getOutsideCourseList($('#EFuniversity:first-child').val());
+    console.log("First Child of Uni: " + $('#EFuniversity>:first-child').val());
+    getOutsideCourseList($('#EFuniversity>:first-child').val());
 }
 
 function getOutsideCourseList(university_id) {
