@@ -26,7 +26,7 @@ if (isset($_POST['code'])) {
         echo 'Changes have been successfully saved.';
     }
     else {
-        echo 'Changes could not be saved. You either did not change anything or there is a problem from our end.';
+        echo 'Changes could not be saved. You either did not change anything or you input is invalid.';
     }
 }
 

@@ -21,5 +21,121 @@
                 </ul>
             </nav>
         </header>
+        <div class="container">
+            <div class="row">
+                <div class="col-25">
+                    <label for="entity">
+                        Insert:
+                    </label>
+                </div>
+                <div class="col-75">
+                    <select name="entity" id="entity">
+                        <option value="wcs_course" selected>Western Course</option>
+                        <option value="eq">Course Equivalency</option>
+                    </select>
+                </div>
+            </div>
+            <form id="westernForm">
+                <div class="row">
+                    <div class="col-25">
+                        <label for="WFcode">
+                            Course Code: CS
+                        </label>
+                    </div>
+                    <div class="col-75">
+                        <input type="text" id="WFcode" name="WFcode">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-25">
+                        <label for="WFname">
+                            Course Name:
+                        </label>
+                    </div>
+                    <div class="col-75">
+                        <input type="text" id="WFname" name="WFname">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-25">
+                        <label for="WFsuffix">
+                            Course Suffix:
+                        </label>
+                    </div>
+                    <div class="col-75">
+                        <input type="text" id="WFsuffix" name="WFsuffix">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-25">
+                        <label for="WFweight">
+                            Course Weight:
+                        </label>
+                    </div>
+                    <div class="col-75">
+                        <input type="text" id="WFweight" name="WFweight">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-25">
+                    </div>
+                    <div class="col-75">
+                        <input type="button" id="WFsubmit">
+                    </div>
+                </div>
+            </form>
+            <form id="eqForm">
+                <div class="row">
+                    <div class="col-25">
+                        <label for="EFwcourse">
+                            Western Course
+                        </label>
+                    </div>
+                    <div class="col-75">
+                        <select id="EFwcourse">
+                        </select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-25">
+                        <label for="EFuniversity">
+                            Outside University
+                        </label>
+                    </div>
+                    <div class="col-75">
+                        <select id="EFuniversity">
+                        </select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-25">
+                        <label for="EFocourse">
+                            Outside Course
+                        </label>
+                    </div>
+                    <div class="col-75">
+                        <select id="EFocourse">
+                        </select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-25">
+                        <label for="EFdate">
+                            Effective Approval Date
+                        </label>
+                    </div>
+                    <div class="col-75">
+                        <input type="date" id="EFdate">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-25">
+                    </div>
+                    <div class="col-75">
+                        <input type="button" id="EFsubmit">
+                    </div>
+                </div>
+            </form>
+        </div>
     </body>
 </html>
