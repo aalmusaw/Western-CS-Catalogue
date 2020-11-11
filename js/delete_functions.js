@@ -38,7 +38,7 @@ function has_equivalent(course_code) {
 
 function confirmDelete() {
     let course = $('wcs_course').val();
-    if (!course) {
+    if (course) {
         alert('Please select a course to delete.')
     }
     else {
