@@ -70,7 +70,7 @@ function submitData() {
             suffix: $('#suffix').val()
         },
         function(response) {
-            confirm("response");
+            confirm(response);
             window.location.reload();
         }
         )
