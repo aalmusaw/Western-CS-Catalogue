@@ -82,8 +82,14 @@ if (isset($_POST['form'])) {
             }
         }
         else {
-            $query = 'INSERT INTO is_equivalent VALUES (' . $_POST['wcode'] . ', ' . $_POST['ocode'] . ', '
+            if (isset($_POST['date'])) {
+                $query = 'INSERT INTO is_equivalent VALUES (' . $_POST['wcode'] . ', ' . $_POST['ocode'] . ', '
                 . $_POST['uni'] . ', ' . $_POST['date'] . ')';
+            }
+            else {
+                $query = 'INSERT INTO is_equivalent VALUES (' . $_POST['wcode'] . ', ' . $_POST['ocode'] . ', '
+                . $_POST['uni'] . ', CURDATE())';
+            }
             $result = mysqli_query($connection,$query);
             if (mysqli_affected_rows($connection) == 0) {
                 echo "Changes could not be saved. Please contact the website developer.";
