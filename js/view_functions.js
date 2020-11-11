@@ -149,6 +149,7 @@ function resetUniProv() {
   function(response) {
     $('#uni_province_abv').append(response);
   });
+}
 
 /**
  * This function makes a GET request to the backend
@@ -292,6 +293,7 @@ function eq_ocs_by_wcs() {
     $('#eq_ocs_by_wcs').append(response);
   });
 }
+
 /**
  * This function makes a GET request to the backend server
  * and retrieves a list of courses made equivalent on or 
