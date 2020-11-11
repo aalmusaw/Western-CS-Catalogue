@@ -13,9 +13,22 @@ if ($entity==='wcs_course') {
    }
    $data = substr($data, 0, -2) . "]";
    echo $data;
-   mysqli_free_result($result);
 
 }
+
+if (isset($_POST['code'])) {
+    $query = 'UPDATE wcs_course SET course_name="' . $_POST['name'] . '", weight="' . $_POST['weight'] . 
+    '", suffix="' . $_POST['suffix'] . '" WHERE course_code="' . $_POST['code'] . '"';
+    $result = mysqli_query($connection,$query);
+    if ($result) {
+        echo 'Changes have been successfully saved.';
+    }
+    else {
+        echo 'Changes could not be saved. Please contact the website developer.';
+    }
+}
+
+mysqli_free_result($result);
 mysqli_close($connection);
 
 

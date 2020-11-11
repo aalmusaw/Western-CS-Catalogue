@@ -49,3 +49,28 @@ function getCourseList() {
     );
     
 }
+
+function validWeight () {
+    if ($('#course_weight').val() === '' || /^\d(\.\d{1,2})?$/.test($('#course_weight').val())) {
+        return true;
+    }
+    else {
+        alert("Invalid input for weight. Must be a decimal of the form X.XX or X.X");
+    }
+}
+
+function submitData() {
+    if (validWeight) {
+        $.post("../controllers/edit.php",
+        {
+            code: $('#wcs_course_list').val(),
+            name: $('#course_name').val(),
+            weight: $('#course_weight').val(),
+            suffix: $('#suffix').val()
+        },
+        function(response) {
+            alert(response);
+        }
+        )
+    }
+}
