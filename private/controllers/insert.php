@@ -83,12 +83,12 @@ if (isset($_POST['form'])) {
         }
         else {
             if (isset($_POST['date'])) {
-                $query = 'INSERT INTO is_equivalent VALUES (' . $_POST['wcode'] . ', ' . $_POST['ocode'] . ', '
-                . $_POST['uni'] . ', ' . $_POST['date'] . ')';
+                $query = 'INSERT INTO is_equivalent VALUES ("' . $_POST['wcode'] . '", "' . $_POST['ocode'] . '", "'
+                . $_POST['uni'] . '", ' . $_POST['date'] . '")';
             }
             else {
-                $query = 'INSERT INTO is_equivalent VALUES (' . $_POST['wcode'] . ', ' . $_POST['ocode'] . ', '
-                . $_POST['uni'] . ', CURDATE())';
+                $query = 'INSERT INTO is_equivalent VALUES ("' . $_POST['wcode'] . '", "' . $_POST['ocode'] . '", "'
+                . $_POST['uni'] . '", CURDATE())';
                 echo $query;
             }
             $result = mysqli_query($connection,$query);
