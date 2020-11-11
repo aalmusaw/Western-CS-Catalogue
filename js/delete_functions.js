@@ -1,5 +1,6 @@
 
 $(document).ready(function() {
+    var toDelete;
     getWesternCourseList();
     // call some listeners
     $('#Delete').click(confirmDelete);
@@ -21,8 +22,7 @@ function getWesternCourseList() {
 
 function has_equivalent(course_code) {
     let result;
-    window.setTimeout(function() {
-        $.get("../controllers/delete.php",
+    $.get("../controllers/delete.php",
         {
             entity:"is_equivalent",
             code: course_code
@@ -34,8 +34,11 @@ function has_equivalent(course_code) {
             else if (response === "false") result = false;
             }
     );
-    }, 2000)
-    return result;
+
+    window.setTimeout(function(){
+        toDelete = result;
+    }, 3000)
+    
 }
 
 
@@ -45,19 +48,19 @@ function confirmDelete() {
         alert('Please select a course to delete.')
     }
     else {
-        let to_warn = has_equivalent(course);
-        console.log('has_equivalent() returned: ' + to_warn);
-        if (to_warn) {
-            let to_delete = confirm('The course you are about to delete is associated \
+        has_equivalent(course);
+        console.log('has_equivalent() returned: ' + toDelete);
+        if (toDelete) {
+            let user_conf = confirm('The course you are about to delete is associated \
             with an outside course. Do you still wish to proceed?');
-            if (to_delete) {
+            if (user_conf) {
                 submitDelete();
             }
     
         }
         else {
-            let to_delete = confirm('You are about to delete this course permanently. Would you like to proceed?');
-            if (to_delete) {
+            let user_conf = confirm('You are about to delete this course permanently. Would you like to proceed?');
+            if (user_conf) {
                 submitDelete();
             }
         }
@@ -66,10 +69,10 @@ function confirmDelete() {
 }
 
 function submitDelete() {
-    let course_code = $('#wcs_course').val();
+    let courseCode = $('#wcs_course').val();
     $.post('../controllers/delete.php',
     {
-        wcs_course: course_code 
+        wcs_course: courseCode 
     },
     function(response) {
         confirm(response);
