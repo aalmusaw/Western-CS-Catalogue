@@ -22,7 +22,7 @@ if (isset($_POST['code'])) {
     $query = 'UPDATE wcs_course SET course_name="' . $_POST['name'] . '", weight="' . $_POST['weight'] . 
     '", suffix="' . $_POST['suffix'] . '" WHERE course_code="' . $_POST['code'] . '"';
     $result = mysqli_query($connection,$query);
-    if ($result) {
+    if (mysqli_num_rows($connection)>0) {
         echo 'Changes have been successfully saved.';
     }
     else {
