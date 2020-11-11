@@ -63,7 +63,7 @@ if (isset($_POST['form'])) {
     }
     else if($_POST['form']==='EF') {
         $query = 'SELECT COUNT(*) AS count FROM is_equivalent WHERE ocourse_code="' . $_GET['ocode']
-            . '" AND offered_by=' . $_GET['uni'] . ' AND wcourse_code="' . $_GET['wcode'] . '"';
+            . '" AND offered_by="' . $_GET['uni'] . '" AND wcourse_code="' . $_GET['wcode'] . '"';
         $result = mysqli_query($connection,$query);
         $row = mysqli_fetch_assoc($result);
         if($result !== false) {
