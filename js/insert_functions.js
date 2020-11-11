@@ -86,19 +86,21 @@ function submitWF() {
 function submitEF() {
     if ($('#EFuniversity').val() === "") {
         alert("Please select a university.");
-        return;
     }
-    $.post("../controllers/insert.php",
-    {
-        form: 'EF',
-        wcode: $('#EFwcourse').val(),
-        ocode: $('#EFocourse').val(),
-        uni: $('#EFuniversity').val(),
-        weight: $('#WFdate').val()
-    },
-    function(response) {
-        alert(response);
-        location.reload();
+    else {
+        $.post("../controllers/insert.php",
+        {
+            form: 'EF',
+            wcode: $('#EFwcourse').val(),
+            ocode: $('#EFocourse').val(),
+            uni: $('#EFuniversity').val(),
+            weight: $('#WFdate').val()
+        },
+        function(response) {
+            alert(response);
+            location.reload();
+        }
+        );
     }
-    )
+
 }
