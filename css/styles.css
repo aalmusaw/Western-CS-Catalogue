@@ -149,7 +149,7 @@ p a {
 /* style tables and their components */
 table {
   margin-top: 20px;
-  margin-left: 320px;
+  float: left;
   font-family: 'Montserrat', sans-serif;
   border-collapse: collapse;
   width: 75%;
