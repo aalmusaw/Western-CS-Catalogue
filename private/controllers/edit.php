@@ -13,7 +13,7 @@ if ($entity==='wcs_course') {
    }
    $data = substr($data, 0, -2) . "]";
    echo $data;
-
+   mysqli_free_result($result);
 }
 
 if (isset($_POST['code'])) {
@@ -26,9 +26,9 @@ if (isset($_POST['code'])) {
     else {
         echo 'Changes could not be saved. Please contact the website developer.';
     }
+    mysqli_free_result($result);
 }
 
-mysqli_free_result($result);
 mysqli_close($connection);
 
 
