@@ -85,8 +85,7 @@ function submitWF() {
 }
 
 function submitEF() {
-    console.log($('#EFuniversity').val());
-    if ($('#EFuniversity').val()) {
+    if (!$('#EFuniversity').val()) {
        confirm("Please select a university.");
     }
     else {
