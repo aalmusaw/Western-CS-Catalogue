@@ -1,5 +1,5 @@
-let courses = [];
-function loadUpCourses() {
+var courses = [];
+$(document).ready(function() {
     $.getJSON("../controllers/edit.php",
      {entity:"wcs_course"},
      function(response) {
@@ -12,4 +12,4 @@ function loadUpCourses() {
          $('wcs_course_list').append(html);
      }
     );
-}
+})
