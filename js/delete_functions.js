@@ -1,6 +1,5 @@
-
+var toDelete;
 $(document).ready(function() {
-    var toDelete;
     getWesternCourseList();
     // call some listeners
     $('#Delete').click(confirmDelete);
