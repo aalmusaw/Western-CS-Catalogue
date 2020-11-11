@@ -88,9 +88,14 @@ if (isset($_POST['form'])) {
             if (mysqli_affected_rows($connection) == 0) {
                 echo "Changes could not be saved. Please contact the website developer.";
             }
-            else {
+            if($result){
                 echo "Changes have been saved successfully.";
             }
+            else {
+                echo "Fatal Error!";
+            }
+                
+            
 
         }
         
