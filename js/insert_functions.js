@@ -79,7 +79,6 @@ function submitWF() {
     },
     function(response) {
         confirm(response);
-        window.location.reload();
     }
     )
 }
@@ -99,7 +98,6 @@ function submitEF() {
         },
         function(response) {
             confirm(response);
-            //window.location.reload();
         }
         );
     }

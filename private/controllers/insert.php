@@ -89,7 +89,6 @@ if (isset($_POST['form'])) {
             else {
                 $query = 'INSERT INTO is_equivalent VALUES ("' . $_POST['wcode'] . '", "' . $_POST['ocode'] . '", "'
                 . $_POST['uni'] . '", CURDATE())';
-                echo $query;
             }
             $result = mysqli_query($connection,$query);
             if (mysqli_affected_rows($connection) == 0) {
