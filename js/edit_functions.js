@@ -4,6 +4,7 @@ $(document).ready(function() {
     getCourseList();
     // call some listeners
     $('#wcs_course_list').change(toggleForm);
+    $('#submitForm').click(submitData);
 })
 
 function toggleForm() {
