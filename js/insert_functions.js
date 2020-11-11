@@ -43,8 +43,6 @@ function getUniversityList() {
             $('#EFuniversity').append(response);
             }
     );
-    console.log("First Child of Uni: " + $('#EFuniversity').val());
-    getOutsideCourseList($('#EFuniversity select:first-child').val());
 }
 
 function getOutsideCourseList(university_id) {
@@ -83,6 +81,10 @@ function submitWF() {
 }
 
 function submitEF() {
+    if ($('#EFuniversity').val() === "") {
+        alert("Please select a university.");
+        return;
+    }
     $.post("../controllers/insert.php",
     {
         form: 'EF',
