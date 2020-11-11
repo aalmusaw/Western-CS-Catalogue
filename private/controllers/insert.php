@@ -69,7 +69,7 @@ if (isset($_POST['form'])) {
             mysqli_free_result($result);
             }
         if ($row['count'] == 1) {
-            $query = 'UPDATE is_equivalent SET equiv_approval_date="' . $_GET['date'] '" WHERE ocourse_code="' . 
+            $query = 'UPDATE is_equivalent SET equiv_approval_date=CURDATE() WHERE ocourse_code="' . 
             $_GET['ocode'] . '" AND offered_by=' . $_GET['uni'] . ' AND wcourse_code="' . 
             $_GET['wcode'] . '"';
             $result = mysqli_query($connection,$query);
