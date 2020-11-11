@@ -8,6 +8,7 @@ function loadUpCourses() {
              let html = "<option value=" + response[i].course_code + ">" + response[i].course_code + ": "
                 + response[i].course_name + "</option>";
          }
+         console.log(html);
          $('wcs_course_list').append(html);
      }
     );
