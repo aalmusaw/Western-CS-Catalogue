@@ -17,6 +17,7 @@ function toggleForms() {
         $('#eqForm').hide();
     }
     else if ($('#entity').val() === 'eq') {
+
         $('#westernForm').hide();
         $('#eqForm').show();
         getWesternCourseList();
@@ -84,7 +85,7 @@ function submitWF() {
 }
 
 function submitEF() {
-    if ($('#EFuniversity').val() === "") {
+    if ($('#EFuniversity').val() == "") {
         alert("Please select a university.");
     }
     else {
