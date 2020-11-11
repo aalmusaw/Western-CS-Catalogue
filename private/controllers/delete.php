@@ -16,7 +16,7 @@ if (isset($_GET['entity'])) {
 
     }
     else if($_GET['entity']==='is_equivalent') {
-        $code = $_GET['code']
+        $code = $_GET['code'];
         $query = 'SELECT COUNT(*) AS count FROM is_equivalent WHERE wcourse_code="' . $code . 
         '"';
         $result = mysqli_query($connection, $query);
