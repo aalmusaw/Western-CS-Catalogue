@@ -67,7 +67,9 @@ function submitDelete() {
         wcs_course: course_code 
     },
     function(response) {
-        alert(response);
+        confirm(response);
+        setTimeout(window.location.reload, 1000);
+
     }
     )
 }
