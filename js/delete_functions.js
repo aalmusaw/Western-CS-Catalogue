@@ -33,10 +33,7 @@ function has_equivalent(course_code) {
             else if (response === "false") result = false;
             }
     );
-
-    window.setTimeout(function(){
-        toDelete = result;
-    }, 3000)
+    toDelete = result;
     
 }
 
@@ -48,21 +45,23 @@ function confirmDelete() {
     }
     else {
         has_equivalent(course);
-        console.log('has_equivalent() returned: ' + toDelete);
-        if (toDelete) {
-            let user_conf = confirm('The course you are about to delete is associated \
-            with an outside course. Do you still wish to proceed?');
-            if (user_conf) {
-                submitDelete();
+        window.setTimeout(function() {
+            console.log('has_equivalent() returned: ' + toDelete);
+            if (toDelete) {
+                let user_conf = confirm('The course you are about to delete is associated \
+                with an outside course. Do you still wish to proceed?');
+                if (user_conf) {
+                    submitDelete();
+                }
+        
             }
-    
-        }
-        else {
-            let user_conf = confirm('You are about to delete this course permanently. Would you like to proceed?');
-            if (user_conf) {
-                submitDelete();
+            else {
+                let user_conf = confirm('You are about to delete this course permanently. Would you like to proceed?');
+                if (user_conf) {
+                    submitDelete();
+                }
             }
-        }
+        }, 3500)
     }
 
 }
