@@ -68,7 +68,7 @@ function submitDelete() {
     },
     function(response) {
         confirm(response);
-        setTimeout(window.location.reload, 1000);
+        window.location.reload();
 
     }
     )
