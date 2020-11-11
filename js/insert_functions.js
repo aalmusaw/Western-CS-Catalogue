@@ -1,21 +1,22 @@
 
 $(document).ready(function() {
-    // load up the course options
-    getCourseList();
     // call some listeners
     toggleForms();
-    $('#wcs_course_list').change(toggleForm);
+    $('#entity').change(toggleForm);
     $('#EFuniversity').change(getOutsideCourseList($('#EFuniversity').val()))
     $('#WFsubmit').click(submitWF);
     $('#EFsubmit').click(submitEF);
 })
 
 function toggleForms() {
+    console.log('toggleForms called!')
     if ($('#entity').val() === 'wcs_course') {
+        console.log('Should hide EQ form')
         $('#westernForm').show();
         $('#eqForm').hide();
     }
     else if ($('#entity').val() === 'eq') {
+        console.log('Should hide Western form')
         $('#westernForm').hide();
         $('#eqForm').show();
         getWesternCourseList();
