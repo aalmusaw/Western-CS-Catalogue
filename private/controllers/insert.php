@@ -28,8 +28,8 @@ if (isset($_GET['entity'])) {
         }
     }
     else if ($_GET['entity']==='ocs_course') {
-        $query = 'SELECT course_code, course_name FROM ocs_course WHERE offered_by=' .  $_GET['uni_id']
-        . ' ORDER BY name';
+        $query = 'SELECT course_code, course_name FROM ocs_course WHERE offered_by="' .  $_GET['uni_id']
+        . '" ORDER BY name';
         $result = mysqli_query($connection,$query);
         while ($row = mysqli_fetch_assoc($result)) {
             echo '<option value="' . $row['course_code'] . '">' . $row['course_code'] . ': ' 
