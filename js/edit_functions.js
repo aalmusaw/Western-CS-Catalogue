@@ -7,7 +7,7 @@ $(document).ready(function() {
          for(let i = 0; i < response.length; i++) {
              let html = '<option value="' + response[i].course_code + '">' + response[i].course_code + ': '
                 + response[i].course_name + '</option>';
-             $('##wcs_course_list').append(html);
+             $('#wcs_course_list').append(html);
          }
          
      }
