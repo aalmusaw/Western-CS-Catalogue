@@ -21,6 +21,7 @@ if (isset($_GET['entity'])) {
         '"';
         $result = mysqli_query($connection, $query);
         $row = mysqli_fetch_assoc($result);
+        echo $row['count'];
         if ($row['count'] === "0") {
             echo "false";
         }
