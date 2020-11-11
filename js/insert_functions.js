@@ -93,8 +93,7 @@ function submitEF() {
             form: 'EF',
             wcode: $('#EFwcourse').val(),
             ocode: $('#EFocourse').val(),
-            uni: $('#EFuniversity').val(),
-            weight: $('#WFdate').val()
+            uni: $('#EFuniversity').val()
         },
         function(response) {
             confirm(response);
