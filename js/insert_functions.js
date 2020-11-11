@@ -43,8 +43,7 @@ function getUniversityList() {
             $('#EFuniversity').append(response);
             }
     );
-    $('#EFuniversity:first-child').prop("selected", "selected");
-    getOutsideCourseList($('#EFuniversity:first-child').val());
+    getOutsideCourseList($('#EFuniversity').val());
     
 }
 
