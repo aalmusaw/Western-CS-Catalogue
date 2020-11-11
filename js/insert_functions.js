@@ -78,8 +78,8 @@ function submitWF() {
         suffix: $('#WFsuffix').val()
     },
     function(response) {
-        alert(response);
-        location.reload();
+        if(alert(response)){}
+        else window.location.reload(); 
     }
     )
 }
@@ -98,8 +98,8 @@ function submitEF() {
             weight: $('#WFdate').val()
         },
         function(response) {
-            alert(response);
-            location.reload();
+            if(alert(response)){}
+            else window.location.reload(); 
         }
         );
     }

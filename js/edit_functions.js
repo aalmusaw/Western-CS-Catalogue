@@ -70,8 +70,8 @@ function submitData() {
             suffix: $('#suffix').val()
         },
         function(response) {
-            alert(response);
-            location.reload();
+            if(alert(response)){}
+            else window.location.reload(); 
         }
         )
     }
