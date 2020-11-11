@@ -45,10 +45,10 @@ if (isset($_GET['entity'])) {
 
 if (isset($_POST['form'])) {
     if ($_POST['form']==='WF') {
-        $code = mysqli_real_escape_string($_POST['code']);
-        $name = mysqli_real_escape_string($_POST['name']);
-        $weight = mysqli_real_escape_string($_POST['weight']);
-        $suffix = mysqli_real_escape_string($_POST['suffix']);
+        $code = mysqli_real_escape_string($connection, $_POST['code']);
+        $name = mysqli_real_escape_string($connection, $_POST['name']);
+        $weight = mysqli_real_escape_string($connection, $_POST['weight']);
+        $suffix = mysqli_real_escape_string($connection, $_POST['suffix']);
         
         $query = "INSERT IGNORE INTO wcs_course VALUES (" . $code . ", "
         . $name . ", " . $weight . ", " . $suffix . ")" ;
