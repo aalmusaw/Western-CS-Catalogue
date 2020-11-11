@@ -71,8 +71,8 @@ function submitData() {
         },
         function(response) {
             alert(response);
+            location.reload();
         }
         )
-        location.reload();
     }
 }
