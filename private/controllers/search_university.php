@@ -27,16 +27,16 @@ function send_university_options($connection) {
  * 
  */
 function send_university_province_options($connection) {
-    $query = "SELECT name FROM university ORDER BY province_abv";
-        $result = mysqli_query($connection,$query);
-        while ($row = mysqli_fetch_assoc($result)) {
-            echo '<option value="';
-            echo $row["name"];
-            echo '"> ';
-            echo $row["name"];
-            echo '</option>';
-       }
-       mysqli_free_result($result);
+    $query = "SELECT DISTINCT(province_abv) FROM university ORDER BY province_abv";
+    $result = mysqli_query($connection,$query);
+    while ($row = mysqli_fetch_assoc($result)) {
+        echo '<option value="';
+        echo $row["province_abv"];
+        echo '"> ';
+        echo $row["province_abv"];
+        echo '</option>';
+   }
+   mysqli_free_result($result);
 }
 
 /**

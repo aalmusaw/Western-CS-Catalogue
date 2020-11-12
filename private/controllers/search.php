@@ -58,21 +58,6 @@ else if ($entity==='eq') {
         }
     }
 }
-
 mysqli_close($connection);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 ?>
