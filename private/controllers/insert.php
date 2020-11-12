@@ -38,7 +38,7 @@ if (isset($_POST['form'])) {
             update_equivalency($connection, $_POST['wcode'],  $_POST['ocode'], $_POST['uni']);
         }
         else {
-            insert_new_equivalency(($connection, $_POST['wcode'],  $_POST['ocode'], $_POST['uni']);
+            insert_new_equivalency($connection, $_POST['wcode'],  $_POST['ocode'], $_POST['uni']);
         }
     }
 }
