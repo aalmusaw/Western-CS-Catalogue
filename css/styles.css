@@ -32,7 +32,7 @@ header img {
 }
 
 /*
- * General style for buttons and links
+ * General style for header links
  */
  header li, header a {
     font-family: 'Montserrat', sans-serif;
@@ -113,7 +113,9 @@ p a {
 
   }
   
-
+/*
+ * Define container, row, col classes in boostrap-style
+ */
   
   .container {
     border-radius: 5px;
@@ -132,14 +134,8 @@ p a {
     width: 75%;
     margin-top: 6px;
   }
-
-  .col-37p5 {
-    float : left;
-    width: 37.5%;
-    margin-top: 6px;
-  }
   
-  /* Clear floats after the columns */
+  /* Clear floats after*/
   .row:after {
     content: "";
     display: table;
@@ -210,7 +206,9 @@ input[type=checkbox] {
   
 }
 
-
+/*
+ * Use similar styles as earlier for other input types
+ */
 input[type=text], select, textarea {
   font-family: 'Montserrat', sans-serif;
   width: 100%;
@@ -237,10 +235,3 @@ input[type=submit] {
 input[type=submit]:hover {
   background-color: #4F2D82;
 }
-
-div.h_radio {
-  justify-content: space-around;
-  display: flex;
-  align-items: center;
-}
-
