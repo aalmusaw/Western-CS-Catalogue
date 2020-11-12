@@ -1,9 +1,9 @@
 <?php
 
 include 'connectdb.php';
-include 'search_wcs_course'
-include 'search_university'
-include 'search_equiv'
+include 'search_wcs_course';
+include 'search_university';
+include 'search_equiv';
 
 // this variable decides the kind of request to serve
 $entity = $_GET['entity'];
