@@ -3,7 +3,26 @@
 include 'connectdb.php';
 
 $entity = $_GET['entity'];
+// client wants all rows in wcs_course as array of JSONs
 if ($entity==='wcs_course') {
+    send_western_courses($connection);
+}
+
+// client wants to update western course info
+if (isset($_POST['code'])) {
+    update_western_course($connection, $_POST['code'], $_POST['name'], $_POST['weight'], $_POST['suffix']);
+}
+
+mysqli_close($connection);
+
+
+
+/**
+ * Sends an array of JSONs containing all rows in wcs_course
+ * 
+ * @param $connection mysqli a connection to the mysql database
+ */
+function send_western_courses($connection) {
     $query = "SELECT * FROM wcs_course ORDER BY course_code";
     $result = mysqli_query($connection,$query);
     $cols = array('course_code', 'course_name', 'weight', 'suffix');
@@ -18,9 +37,18 @@ if ($entity==='wcs_course') {
     }
 }
 
-if (isset($_POST['code'])) {
-    $query = 'UPDATE wcs_course SET course_name="' . $_POST['name'] . '", weight="' . $_POST['weight'] . 
-    '", suffix="' . $_POST['suffix'] . '" WHERE course_code="' . $_POST['code'] . '"';
+/**
+ * 
+ * 
+ * @param $connection mysqli a connection to the mysql database
+ * @param $code string the course code of the course to update
+ * @param $name string the course's new name
+ * @param $weight string of format X.XX (DECIMAL), the course's new weight
+ * @param $suffix string the course's new suffix 
+ */
+function update_western_course($connection, $code, $name, $weight, $suffix) {
+    $query = 'UPDATE wcs_course SET course_name="' . $name . '", weight="' . $weight . 
+    '", suffix="' . $suffix . '" WHERE course_code="' . $code . '"';
     $result = mysqli_query($connection,$query);
     if (mysqli_affected_rows($connection)>0) {
         echo 'Changes have been successfully saved.';
@@ -30,7 +58,6 @@ if (isset($_POST['code'])) {
     }
 }
 
-mysqli_close($connection);
 
 
 
