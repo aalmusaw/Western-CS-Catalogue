@@ -1,8 +1,8 @@
 <?php
 
 include 'connectdb.php';
-include 'insert_options';
-include 'insert_new';
+include 'insert_options.php';
+include 'insert_new.php';
 
 // client wants option tags
 if (isset($_GET['entity'])) {
