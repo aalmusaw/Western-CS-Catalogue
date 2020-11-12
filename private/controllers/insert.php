@@ -1,67 +1,32 @@
 <?php
 
 include 'connectdb.php';
+include 'insert_options';
+include 'insert_new';
 
+// client wants option tags
 if (isset($_GET['entity'])) {
     if ($_GET['entity']==='wcs_course') {
-        $query = "SELECT * FROM wcs_course ORDER BY course_code";
-        $result = mysqli_query($connection,$query);
-        while ($row = mysqli_fetch_assoc($result)) {
-            echo '<option value="' . $row['course_code'] . '">' . $row['course_code'] . ': ' 
-            . $row['course_name'] . '</option>';
-        }
-        if($result !== false) {
-            mysqli_free_result($result);
-         }
-
+        send_wcs_courses($connection);
     }
     else if ($_GET['entity']==='university') {
-        $query = "SELECT university_id, name FROM university ORDER BY name";
-        $result = mysqli_query($connection,$query);
-        while ($row = mysqli_fetch_assoc($result)) {
-            echo '<option value="' . $row['university_id'] . '">' . $row['university_id'] . ': ' 
-            . $row['name'] . '</option>';
-        }
-        if($result !== false) {
-            mysqli_free_result($result);
-            
-        }
+        send_university_options($connection);
     }
     else if ($_GET['entity']==='ocs_course') {
-        $query = 'SELECT course_code, course_name FROM ocs_course WHERE offered_by="' .  $_GET['uni_id']
-        . '" ORDER BY course_code';
-        $result = mysqli_query($connection,$query);
-        while ($row = mysqli_fetch_assoc($result)) {
-            echo '<option value="' . $row['course_code'] . '">' . $row['course_code'] . ': ' 
-            . $row['course_name'] . '</option>';
-        }
-        if($result !== false) {
-            mysqli_free_result($result);
-            
-        }
+        send_ocourse_options($connection, $_GET['uni_id']);
     }
 }
 
-
+// client wants to add a new entry
 if (isset($_POST['form'])) {
+    // related to the Western Insert Form
     if ($_POST['form']==='WF') {
-        $code = mysqli_real_escape_string($connection, $_POST['code']);
-        $name = mysqli_real_escape_string($connection, $_POST['name']);
-        $weight = mysqli_real_escape_string($connection, $_POST['weight']);
-        $suffix = mysqli_real_escape_string($connection, $_POST['suffix']);
-        
-        $query = 'INSERT IGNORE INTO wcs_course VALUES ("cs' . $code . '", "'
-        . $name . '", "' . $weight . '", "' . $suffix . '")' ;
-        $result = mysqli_query($connection,$query);
-        if (mysqli_affected_rows($connection) == 0) {
-            echo "Changes have not been saved. You may have entered a 
-            duplicate course code or there is an error on our end.";
-        }
-        else {
-            echo "Changes have been successfully saved.";
-        }
+        insert_western_course($connection, $_POST['code'], $_POST['name'], $_POST['weight'], $_POST['suffix']);
     }
+
+    // related to the Course Equivalency Insert Form
     else if($_POST['form']==='EF') {
+        // check if the equivalency already exists
         $query = 'SELECT COUNT(*) AS count FROM is_equivalent WHERE ocourse_code="' . $_POST['ocode']
             . '" AND offered_by="' . $_POST['uni'] . '" AND wcourse_code="' . $_POST['wcode'] . '"';
         $result = mysqli_query($connection,$query);
@@ -70,50 +35,13 @@ if (isset($_POST['form'])) {
             mysqli_free_result($result);
             }
         if ($row['count'] == 1) {
-            $query = 'UPDATE is_equivalent SET equiv_approval_date=CURDATE() WHERE ocourse_code="' . 
-            $_POST['ocode'] . '" AND offered_by=' . $_POST['uni'] . ' AND wcourse_code="' . 
-            $_POST['wcode'] . '"';
-            $result = mysqli_query($connection,$query);
-            if (mysqli_affected_rows($connection) > 0) {
-                echo "This course equivalency already exists. The approval date has been updated.";
-            }
-            else {
-                echo "Changes could not be saved. Please contact the website developer.";
-            }
+            update_equivalency($connection, $_POST['wcode'],  $_POST['ocode'], $_POST['uni']);
         }
         else {
-            $query = 'INSERT INTO is_equivalent VALUES ("' . $_POST['wcode'] . '", "' . $_POST['ocode'] . '", "'
-                . $_POST['uni'] . '", CURDATE())';
-            $result = mysqli_query($connection,$query);
-            if (mysqli_affected_rows($connection) == 0) {
-                echo "Changes could not be saved. Please contact the website developer.";
-            }
-            else {
-                echo "Changes have been successfully saved.";
-            }
-                
-            
-
+            insert_new_equivalency($connection, $_POST['code'], $_POST['name'], $_POST['weight'], $_POST['suffix']);
         }
-        
-
     }
 }
-
 mysqli_close($connection);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 ?>
