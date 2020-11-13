@@ -6,6 +6,8 @@ A user can view a list of computer science courses and is allowed to delete or a
 another course offered by a different university. 
 
 Watch how I navigate the website
+[![Video Thumbnail](https://github.com/aalmusaw/Western-CS-Catalogue/blob/master/READ_ME_contents/vidthumbnail.jpg?raw=true)](https://youtu.be/u6UOpkinUDY)
+
 
 All the code used was developed by hand and no WYSISWYG tools were used.
 This is my first web app and I am sure there is a lot to improve!
