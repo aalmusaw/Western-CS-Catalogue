@@ -19,3 +19,8 @@ You need a relational database that has the following ER diagram:
 
 You must change the connection parameters in the file private/controllers/connectdb.php
 
+# Link to Github Page
+To take a look at the GUI (no data available), see here.
+https://aalmusaw.github.io/Western-CS-Catalogue/
+
+
