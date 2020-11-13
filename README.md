@@ -13,7 +13,7 @@ This is my first web app and I am sure there is a lot to improve!
 # To run this website
 
 You need a relational database that has the following ER diagram:
-![ER](https://github.com/aalmusaw/Western-CS-Catalogue/blob/master/ER.jpg?raw=true)
+![ER](https://github.com/aalmusaw/Western-CS-Catalogue/blob/master/READ_ME_contents/ER.jpg?raw=true`)
 
 You must change the connection parameters in the file private/controllers/connectdb.php
 
